@@ -1,42 +1,60 @@
 "use client";
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export default function AboutSection() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section className="bg-white py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        {/* Header with lighthouse icon */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 flex items-center justify-center gap-2 flex-wrap">
-            <Image
-              src="/fr-blue.png"
-              alt="Future Ready Icon"
-              width={60}
-              height={60}
-              className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16"
-            />
-            <span className="text-[#1e3a8a]">bout</span>
-            <span className="text-orange-500">Me</span>
-          </h2>
+    <section className="bg-white py-20 px-4 relative overflow-hidden">
+      {/* Scroll-reactive background text */}
+      <div
+        className="absolute bottom-0 left-0 right-0 flex items-end justify-center pointer-events-none select-none overflow-hidden z-0"
+        style={{
+          transform: `translateX(${scrollY * 0.3}px)`,
+          height: '50%',
+        }}
+      >
+        <div className="text-gray-200 text-[35rem] font-black whitespace-nowrap opacity-20 leading-none">
+          JACOB MORGAN
         </div>
+      </div>
 
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left side - Image */}
-          <div className="flex justify-center lg:justify-start">
-            <div className="relative">
-              {/* Blue geometric background shape */}
-              <div className="absolute -bottom-8 -left-8 w-full h-full bg-[#1e3a8a] rounded-lg transform rotate-3 -z-10"></div>
-
-              <div className="relative bg-white rounded-lg overflow-hidden shadow-xl">
+          {/* Left side - Header and Image */}
+          <div className="space-y-8">
+            {/* Header with lighthouse icon - right above the photo */}
+            <div className="text-left">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 flex items-center gap-3 flex-wrap">
                 <Image
-                  src="/jacob-image.png"
-                  alt="Jacob Morgan"
-                  width={500}
-                  height={600}
-                  className="w-full h-auto"
-                  priority
+                  src="/fr-blue.png"
+                  alt="Future Ready Icon"
+                  width={60}
+                  height={60}
+                  className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16"
                 />
-              </div>
+                <span className="text-[#1e3a8a]">bout</span>
+                <span className="text-orange-500">Me</span>
+              </h2>
+            </div>
+
+            {/* Image without additional effects */}
+            <div className="flex justify-center lg:justify-start">
+              <Image
+                src="/jacob-image.png"
+                alt="Jacob Morgan"
+                width={500}
+                height={600}
+                className="w-full h-auto rounded-lg"
+                priority
+              />
             </div>
           </div>
 
@@ -72,7 +90,7 @@ export default function AboutSection() {
             <div className="pt-6">
               <a
                 href="mailto:jacob@TheFutureOrganization"
-                className="inline-block bg-[#1e3a8a] text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-orange-500 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="inline-block bg-[#1e3a8a] text-white px-12 py-4 rounded-lg font-semibold text-lg hover:bg-orange-500 transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 BOOK JACOB
               </a>
