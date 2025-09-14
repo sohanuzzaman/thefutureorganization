@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Navigation from "./components/Navigation";
 import TestimonialsSection from "./components/TestimonialsSection";
+import FutureReadySection from "./components/FutureReadySection";
 
 export default function Home() {
   return (
@@ -54,6 +55,9 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <TestimonialsSection />
+
+      {/* Future Ready Section */}
+      <FutureReadySection />
 
       {/* About Jacob Section */}
       <section className="bg-white py-16">
