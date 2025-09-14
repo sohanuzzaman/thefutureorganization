@@ -3,6 +3,7 @@ import Navigation from "./components/Navigation";
 import TestimonialsSection from "./components/TestimonialsSection";
 import FutureReadySection from "./components/FutureReadySection";
 import AboutSection from "./components/AboutSection";
+import KeynoteTopicsSection from "./components/KeynoteTopicsSection";
 
 export default function Home() {
   return (
@@ -62,6 +63,9 @@ export default function Home() {
 
       {/* About Jacob Section */}
       <AboutSection />
+
+      {/* Keynote Topics Section */}
+      <KeynoteTopicsSection />
 
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 py-12">
