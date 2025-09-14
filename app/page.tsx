@@ -2,6 +2,7 @@ import Image from "next/image";
 import Navigation from "./components/Navigation";
 import TestimonialsSection from "./components/TestimonialsSection";
 import FutureReadySection from "./components/FutureReadySection";
+import AboutSection from "./components/AboutSection";
 
 export default function Home() {
   return (
@@ -60,18 +61,7 @@ export default function Home() {
       <FutureReadySection />
 
       {/* About Jacob Section */}
-      <section className="bg-white py-16">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#334155] mb-6">
-            Hi I&rsquo;m Jacob Morgan
-          </h1>
-
-          <p className="text-xl md:text-2xl text-[#334155] max-w-4xl mx-auto leading-relaxed">
-            Jacob Morgan is a professionally trained futurist, best-selling author, and keynote speaker.
-            He creates future-ready organizations, leaders, and employees.
-          </p>
-        </div>
-      </section>
+      <AboutSection />
 
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 py-12">
