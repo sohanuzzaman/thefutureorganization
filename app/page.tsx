@@ -4,6 +4,8 @@ import TestimonialsSection from "./components/TestimonialsSection";
 import FutureReadySection from "./components/FutureReadySection";
 import AboutSection from "./components/AboutSection";
 import KeynoteTopicsSection from "./components/KeynoteTopicsSection";
+import CHROCommunitySection from "./components/CHROCommunitySection";
+import ClientLogosSection from "./components/ClientLogosSection";
 
 export default function Home() {
   return (
@@ -66,6 +68,12 @@ export default function Home() {
 
       {/* Keynote Topics Section */}
       <KeynoteTopicsSection />
+
+      {/* CHRO Community Section */}
+      <CHROCommunitySection />
+
+      {/* Client Logos Section */}
+      <ClientLogosSection />
 
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 py-12">
