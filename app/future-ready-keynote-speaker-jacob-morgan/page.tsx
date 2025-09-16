@@ -4,17 +4,26 @@ export default function SpeakingPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section
-        className="hero-section relative h-[600px] bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/assets/images/header-speaking2-scaled.webp')"
-        }}
-      >
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+      <section className="hero-section relative h-[800px] lg:h-[600px] overflow-hidden">
+        {/* Desktop Background Image */}
+        <img
+          src="/assets/images/header-speaking2-scaled.webp"
+          alt="Jacob Morgan Speaking"
+          className="hidden lg:block absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Mobile Background Image */}
+        <img
+          src="/assets/images/header-speaking3-scaled.webp"
+          alt="Jacob Morgan Speaking"
+          className="lg:hidden absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Overlay removed for better image visibility */}
 
         <div className="container mx-auto px-4 relative z-10 h-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 h-full items-center">
+          {/* Desktop Layout */}
+          <div className="hidden lg:grid lg:grid-cols-2 h-full items-center">
             {/* Left column - empty to show Jacob's image */}
             <div></div>
 
@@ -27,6 +36,26 @@ export default function SpeakingPage() {
                 FASCINATING
               </h1>
               <div className="flex flex-col sm:flex-row gap-4">
+                <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors">
+                  EMAIL JACOB
+                </button>
+                <button className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-full text-lg font-semibold transition-colors">
+                  EXPLORE TOPICS
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Layout */}
+          <div className="lg:hidden flex flex-col justify-end h-full pb-12">
+            <div className="text-center">
+              <h1 className="text-4xl sm:text-5xl font-bold text-white mb-8 leading-tight">
+                POWERFUL,<br />
+                CAPTIVATING<br />
+                INSPIRING,<br />
+                FASCINATING
+              </h1>
+              <div className="flex flex-col gap-4">
                 <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors">
                   EMAIL JACOB
                 </button>
