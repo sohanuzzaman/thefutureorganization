@@ -19,7 +19,17 @@ interface ClientLogo {
   media_url?: string;
 }
 
-export default function ClientLogosSection() {
+interface ClientLogosSectionProps {
+  title?: string;
+  titleHighlight?: string;
+  backgroundImage?: string;
+}
+
+export default function ClientLogosSection({
+  title = "Jacob has Worked with the",
+  titleHighlight = "World's Top Companies",
+  backgroundImage = "/clientlogo-bg.png"
+}: ClientLogosSectionProps) {
   const [logos, setLogos] = useState<ClientLogo[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -70,7 +80,7 @@ export default function ClientLogosSection() {
       <section
         className="py-20 px-4 relative overflow-hidden"
         style={{
-          backgroundImage: 'url(/clientlogo-bg.png)',
+          backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
@@ -82,8 +92,8 @@ export default function ClientLogosSection() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Jacob has Worked with the{" "}
-              <span className="text-orange-500">World's Top Companies</span>
+              {title}{" "}
+              <span className="text-orange-500">{titleHighlight}</span>
             </h2>
           </div>
           <div className="flex justify-center">
@@ -98,7 +108,7 @@ export default function ClientLogosSection() {
     <section
       className="py-20 px-4 relative overflow-hidden"
       style={{
-        backgroundImage: 'url(/clientlogo-bg.png)',
+        backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -111,8 +121,8 @@ export default function ClientLogosSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Jacob has Worked with the{" "}
-            <span className="text-orange-500">World's Top Companies</span>
+            {title}{" "}
+            <span className="text-orange-500">{titleHighlight}</span>
           </h2>
         </div>
 

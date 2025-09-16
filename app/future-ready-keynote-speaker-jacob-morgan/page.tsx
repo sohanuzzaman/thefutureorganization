@@ -1,10 +1,31 @@
 import React from 'react';
 import Image from 'next/image';
+import Navigation from '../components/Navigation';
 import TestimonialsSection from '../components/TestimonialsSection';
+import ClientLogosSection from '../components/ClientLogosSection';
 
 export default function SpeakingPage() {
   return (
-    <main className="min-h-screen">
+    <div className="min-h-screen">
+      {/* Header */}
+      <header className="bg-[#1e3a8a] shadow-sm relative z-50">
+        <div className="max-w-7xl mx-auto px-4 py-3">
+          <div className="flex items-center justify-between">
+            <Image
+              src="/assets/images/jacob-logo.png"
+              alt="Jacob Morgan"
+              width={300}
+              height={68}
+              priority
+              className="h-12 w-auto"
+            />
+
+            <Navigation />
+          </div>
+        </div>
+      </header>
+
+      <main className="min-h-screen">
       {/* Hero Section */}
       <section className="hero-section relative h-[800px] lg:h-[600px] overflow-hidden">
         {/* Desktop Background Image */}
@@ -258,7 +279,7 @@ export default function SpeakingPage() {
         />
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-20 z-10"></div>
+        <div className="absolute inset-0 z-10" style={{ backgroundColor: '#000000d1' }}></div>
 
         <div className="container mx-auto px-4 relative z-20">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
@@ -342,29 +363,47 @@ export default function SpeakingPage() {
       </section>
 
       {/* Client Logos Section */}
-      <section className="client-logos-section bg-gray-100 py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Trusted by Leading Organizations</h2>
-          <p className="text-center text-gray-600">
-            [Client logos - same as homepage - to be implemented]
-          </p>
-        </div>
-      </section>
+      <ClientLogosSection
+        title="Trusted by"
+        titleHighlight="Leading Organizations"
+        backgroundImage="/assets/images/logos.png"
+      />
 
       {/* Contact Section */}
-      <section className="contact-section py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-8">Get in Touch With Jacob</h2>
+      <section
+        className="contact-section py-20 px-4 relative overflow-hidden"
+        style={{
+          backgroundImage: 'url(/assets/images/clientlogo-bg.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Background overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-4xl font-bold text-center mb-8 text-white">Get in Touch With Jacob</h2>
           <div className="text-center">
             <a
               href="mailto:Jacob@TheFutureOrganization.com"
-              className="text-2xl text-blue-600 hover:underline"
+              className="text-2xl text-white hover:text-orange-500 transition-colors duration-300"
             >
               Jacob@TheFutureOrganization.com
             </a>
           </div>
         </div>
       </section>
-    </main>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-[#D1D5DB] py-6">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <p className="text-[#334155]">
+            &copy; 2025 Jacob Morgan. All rights reserved.
+          </p>
+        </div>
+      </footer>
+    </div>
   );
 }

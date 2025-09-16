@@ -6,7 +6,7 @@ export default function Navigation() {
 
   const menuItems = [
     { name: "Home", href: "/" },
-    { name: "Speaking", href: "/speaking" },
+    { name: "Speaking", href: "/future-ready-keynote-speaker-jacob-morgan" },
     { name: "Books", href: "/books" },
     { name: "Podcast", href: "/podcast" },
     { name: "Courses", href: "/courses" },
