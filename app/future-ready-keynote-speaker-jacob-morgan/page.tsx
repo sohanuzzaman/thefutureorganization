@@ -1,4 +1,5 @@
 import React from 'react';
+import TestimonialsSection from '../components/TestimonialsSection';
 
 export default function SpeakingPage() {
   return (
@@ -68,15 +69,8 @@ export default function SpeakingPage() {
         </div>
       </section>
 
-      {/* Testimonial Section - Dynamic (same as homepage) */}
-      <section className="testimonial-section bg-gray-100 py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">Testimonials</h2>
-          <p className="text-center text-gray-600">
-            [Dynamic testimonials from homepage - to be implemented]
-          </p>
-        </div>
-      </section>
+      {/* Testimonials Section */}
+      <TestimonialsSection />
 
       {/* Watch in Action Section */}
       <section className="watch-action-section py-16">
