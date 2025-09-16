@@ -75,103 +75,32 @@ export default function Home() {
       {/* Client Logos Section */}
       <ClientLogosSection />
 
-      {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-4 py-12">
 
-        {/* Testimonials Section */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold text-[#334155] text-center mb-8">
-            Trusted by Leaders From
-          </h2>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 items-center justify-items-center">
-            <div className="w-24 h-24 relative">
-              <Image
-                src="/assets/images/Jose_Antonio.png"
-                alt="Jose Antonio"
-                fill
-                className="object-contain rounded-full"
-              />
-            </div>
-            <div className="w-24 h-24 relative">
-              <Image
-                src="/assets/images/HZ.png"
-                alt="HZ"
-                fill
-                className="object-contain rounded-full"
-              />
-            </div>
-            <div className="w-24 h-24 relative">
-              <Image
-                src="/assets/images/Hubert-Joly.png"
-                alt="Hubert Joly"
-                fill
-                className="object-contain rounded-full"
-              />
-            </div>
-            <div className="w-24 h-24 relative">
-              <Image
-                src="/assets/images/Michael-Miebach.png"
-                alt="Michael Miebach"
-                fill
-                className="object-contain rounded-full"
-              />
-            </div>
-            <div className="w-24 h-24 relative">
-              <Image
-                src="/assets/images/Mark-Hoplamazian.png"
-                alt="Mark Hoplamazian"
-                fill
-                className="object-contain rounded-full"
-              />
-            </div>
-            <div className="w-24 h-24 relative">
-              <Image
-                src="/assets/images/Wes-Kremer.png"
-                alt="Wes Kremer"
-                fill
-                className="object-contain rounded-full"
-              />
-            </div>
-            <div className="w-24 h-24 relative">
-              <Image
-                src="/assets/images/politica-social.png"
-                alt="Politica Social"
-                fill
-                className="object-contain rounded-full"
-              />
-            </div>
-          </div>
-        </section>
-
-        {/* About Section */}
-        <section className="text-center mb-16">
+      {/* Jacob's Books Section */}
+      <section className="bg-white py-16">
+        <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-[#334155] mb-6">
-            Creating Great Leaders, Engaged Employees, &amp; Future-Ready Organizations
+            Read Jacob's Books
           </h2>
+          <p className="text-lg text-[#334155] mb-8 max-w-3xl mx-auto">
+            Discover the insights and strategies that have helped thousands of leaders and organizations prepare for the future.
+          </p>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-[#334155] mb-3">Employee Experience</h3>
-              <p className="text-[#334155]">
-                Transform your workplace culture and create meaningful experiences for your employees.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-[#334155] mb-3">Future of Work</h3>
-              <p className="text-[#334155]">
-                Navigate the changing landscape of work with strategic insights and practical solutions.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-[#334155] mb-3">Leadership</h3>
-              <p className="text-[#334155]">
-                Develop the leadership skills needed to thrive in tomorrow&rsquo;s business environment.
-              </p>
-            </div>
+          <div className="mb-8">
+            <Image
+              src="/assets/images/book.png"
+              alt="Jacob Morgan's Books"
+              width={800}
+              height={300}
+              className="mx-auto"
+            />
           </div>
-        </section>
-      </main>
+
+          <button className="bg-[#1e3a8a] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#1e40af] transition-colors duration-300">
+            See Jacob's Books
+          </button>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="bg-white border-t border-[#D1D5DB] py-6">

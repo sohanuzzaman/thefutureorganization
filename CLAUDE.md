@@ -1,59 +1,72 @@
-# Jacob Morgan Website Recreation
+# WordPress to Next.js Migration Guide
 
-## Overview
-This project recreates the Jacob Morgan website homepage from a WordPress static export into Next.js.
+## Project Overview
+This project migrates Jacob Morgan's WordPress website to Next.js, combining static assets from the WordPress export with dynamic content from the WordPress API.
 
-## Process
+## Migration Strategy
 
-### Homepage Assets Used
-The following assets were imported from the WordPress static export for the homepage:
+### Hybrid Architecture
+- **Static Assets**: Images, videos, PDFs, and other media files copied from `static_export/` to Next.js `public/` directory **only when specifically requested** during migration
+- **Static Content**: Pages, layouts, and styling recreated in Next.js components
+- **Dynamic Content**: Blog posts, testimonials, and other dynamic data fetched from WordPress REST API
+- **SEO**: Maintain URL structure and meta data for search engine optimization
 
-**Images:**
-- `/assets/images/jacob-logo.png` - Main Jacob Morgan logo (3000x677px)
-- `/assets/images/video-placeholder.png` - Video poster image
-- `/assets/images/JacobHome.png` - Jacob's home image (436x408px)
+### WordPress API Integration
+- Use WordPress REST API for dynamic content:
+- Custom fields and metadata
+- Implement caching strategies for API responses
+- Handle pagination for large content sets
 
-**Testimonial Images (200x206px each):**
-- `/assets/images/Jose_Antonio.png`
-- `/assets/images/HZ.png`
-- `/assets/images/Hubert-Joly.png`
-- `/assets/images/Michael-Miebach.png`
-- `/assets/images/Mark-Hoplamazian.png`
-- `/assets/images/Wes-Kremer.png`
-- `/assets/images/politica-social.png`
 
-**Videos:**
-- `/assets/videos/Website-video-V3-2025-final.webm` - Homepage hero video
+### Performance Optimizations
+- Use Next.js Image component for automatic optimization
+- Implement proper caching headers
+- Use ISR (Incremental Static Regeneration) for dynamic content
+- Optimize bundle size with code splitting
 
-**Other:**
-- `favicon.ico` - Site favicon (32x32px)
 
-### Key Homepage Sections Created
+## Development Workflow
 
-1. **Header** - Contains the Jacob Morgan logo
-2. **Hero Section** - Features the video background and main heading "Hi I'm Jacob Morgan"
-3. **Description** - Professional summary text
-4. **Testimonials** - Grid of leader/CEO headshots
-5. **About Section** - Three-column feature cards for Employee Experience, Future of Work, and Leadership
-6. **Footer** - Simple copyright footer
+### Asset Migration Process
+1. **Wait for specific instructions** - Only copy assets when explicitly requested for a particular page/component
+2. Identify the exact assets needed based on the instruction
+3. **Follow Next.js best practices** - Use `/public/assets/images/` structure instead of WordPress wp-content structure
+4. Copy only the requested assets from `static_export/` to appropriate `public/assets/` subdirectory
+5. Update asset paths in components to reference the new Next.js public directory structure (e.g., `/assets/images/filename.ext`)
+6. Optimize assets for web (compress images, convert formats) if needed
+7. Test asset loading and performance
 
-### Design Features
-- Uses Poppins font to match the original WordPress theme
-- Color scheme matches the original: #F0F5FA background, #334155 text, white cards
-- Responsive grid layouts using Tailwind CSS
-- Video autoplay with poster fallback
-- Rounded images in testimonials section
+### Design Principles & Best Practices
+ 
+ - Use Tailwind CSS for all styling to ensure utility-first, consistent, and maintainable design
+ - Write all components and pages in TypeScript for type safety and reliability
+ - Maintain design consistency across all pages and components, following a unified style guide
 
-### Next Steps for Other Pages
-When recreating other pages, follow this same process:
-1. Examine the static export HTML for the specific page
-2. Identify and copy only the assets used on that page to the public/assets/ directory
-3. Extract the content and structure
-4. Create the Next.js page component
-5. Update this CLAUDE.md file with the new page details
+### Content Migration Process
+1. Analyze WordPress page structure in `static_export/`
+2. Extract content and identify dynamic vs static elements
+3. Create Next.js page/component structure
+4. Implement data fetching for dynamic content
+5. Style components to match original design
+6. Test responsive behavior and accessibility
 
-### Technical Notes
-- Using Next.js 15 with Tailwind CSS 4
-- Images optimized with Next.js Image component
-- Video uses modern web formats (WebM)
-- All assets stored in public/assets/ for easy organization
+### Quality Assurance
+- [ ] Cross-browser testing
+- [ ] Mobile responsiveness verification
+- [ ] Performance auditing (Lighthouse)
+- [ ] SEO validation
+- [ ] Accessibility compliance (WCAG)
+- [ ] Content accuracy verification
+
+## API Integration Notes
+
+### WordPress REST API Endpoints
+- Base URL: `https://api.thefutureorganization.com/wp-json/wp/v2/`
+
+### Build Process
+- Optimize images during build
+- Generate sitemaps
+- Pre-build critical pages
+- Validate all links and assets
+
+This migration guide will be updated as we progress through each phase of the project.
