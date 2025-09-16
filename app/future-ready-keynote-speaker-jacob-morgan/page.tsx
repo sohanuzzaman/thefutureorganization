@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import TestimonialsSection from '../components/TestimonialsSection';
 
 export default function SpeakingPage() {
@@ -72,8 +73,11 @@ export default function SpeakingPage() {
       {/* Testimonials Section */}
       <TestimonialsSection />
 
+      {/* Buffer Section */}
+      <section className="bg-white py-16"></section>
+
       {/* Watch in Action Section */}
-      <section className="relative py-20 overflow-hidden" style={{ backgroundColor: '#26388F' }}>
+      <section className="relative pt-20 pb-20 overflow-visible" style={{ backgroundColor: '#26388F' }}>
         {/* Glowing background effects */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400 rounded-full blur-3xl opacity-20"></div>
@@ -81,18 +85,17 @@ export default function SpeakingPage() {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          {/* Video Section */}
-          <div className="text-center mb-16">
-            <div className="relative max-w-4xl mx-auto">
+          {/* Video Section - positioned to partially overlap upward */}
+          <div className="text-center mb-8 -mt-48">
+            <div className="relative max-w-5xl mx-auto">
               {/* Video container with glow effect */}
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-400 rounded-2xl blur-xl opacity-30 group-hover:opacity-40 transition-opacity duration-300"></div>
-                <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
                   <iframe
                     className="w-full aspect-video"
-                    src="https://www.youtube.com/embed/EDPTcIniH3s"
+                    src="https://www.youtube.com/embed/EDPTcIniH3s?modestbranding=1&rel=0&controls=1&iv_load_policy=3&cc_load_policy=0&fs=1&disablekb=1"
                     title="Jacob Morgan Speaking Reel"
-                    frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   ></iframe>
@@ -132,16 +135,18 @@ export default function SpeakingPage() {
         <div className="container mx-auto px-4 relative z-10">
           {/* Header */}
           <div className="text-center mb-16">
-            <div className="flex items-center justify-center mb-6">
-              <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-4">
-                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
-                Sign<span className="text-orange-500">a</span>ture <span className="text-orange-500">Keynote Topics</span>
-              </h2>
-            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white flex items-center justify-center gap-3 flex-wrap">
+              <span className="text-white">Sign</span>
+              <Image
+                src="/assets/images/icon.png"
+                alt="Signature Icon"
+                width={60}
+                height={60}
+                className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
+              />
+              <span className="text-white">ture</span>
+              <span className="text-orange-500">Keynote Topics</span>
+            </h2>
           </div>
 
           {/* Topics Grid */}

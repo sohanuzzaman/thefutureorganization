@@ -37,10 +37,11 @@ This project migrates Jacob Morgan's WordPress website to Next.js, combining sta
 7. Test asset loading and performance
 
 ### Design Principles & Best Practices
- 
+
  - Use Tailwind CSS for all styling to ensure utility-first, consistent, and maintainable design
  - Write all components and pages in TypeScript for type safety and reliability
  - Maintain design consistency across all pages and components, following a unified style guide
+ - **Lighthouse Icon Pattern**: When text contains "Sign[a]ture" or similar patterns where "A" should be replaced with the lighthouse icon, use the `/fr-blue.png` image instead of the letter "A". This creates a consistent brand element across the site (e.g., "About Me", "Signature Keynote Topics")
 
 ### Content Migration Process
 1. Analyze WordPress page structure in `static_export/`
