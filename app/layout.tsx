@@ -19,7 +19,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ colorScheme: 'light' }}>
+      <head>
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            @media (prefers-color-scheme: dark) {
+              body {
+                color-scheme: light !important;
+                background-color: white !important;
+                color: rgb(17, 24, 39) !important;
+              }
+            }
+          `
+        }} />
+      </head>
       <body
         className={`${poppins.variable} font-poppins antialiased`}
         suppressHydrationWarning={true}

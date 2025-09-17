@@ -385,33 +385,33 @@ export default async function EpisodePage({ params }: EpisodePageProps) {
                     <a href="https://podcasts.apple.com/us/podcast/the-future-of-work-podcast/id907990904?mt=2&ls=1"
                        target="_blank"
                        rel="noopener noreferrer"
-                       className="flex flex-col items-center gap-2 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group">
-                      <FaApple className="w-8 h-8 group-hover:scale-110 transition-transform" />
-                      <span className="text-sm font-medium text-center">Apple<br/>Podcasts</span>
+                       className="flex flex-col items-center gap-3 p-5 bg-white border-2 border-gray-200 rounded-lg hover:border-gray-300 hover:shadow-md transition-all group">
+                      <FaApple className="w-10 h-10 text-gray-800 group-hover:scale-110 transition-transform" />
+                      <span className="text-sm font-semibold text-gray-800 text-center">Apple<br/>Podcasts</span>
                     </a>
 
                     <a href="https://open.spotify.com/show/4NtwiXeQCceo2iayiabYAi"
                        target="_blank"
                        rel="noopener noreferrer"
-                       className="flex flex-col items-center gap-2 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group">
-                      <FaSpotify className="w-8 h-8 text-green-500 group-hover:scale-110 transition-transform" />
-                      <span className="text-sm font-medium text-center">Spotify</span>
+                       className="flex flex-col items-center gap-3 p-5 bg-white border-2 border-gray-200 rounded-lg hover:border-green-300 hover:shadow-md transition-all group">
+                      <FaSpotify className="w-10 h-10 text-green-600 group-hover:scale-110 transition-transform" />
+                      <span className="text-sm font-semibold text-gray-800 text-center">Spotify</span>
                     </a>
 
                     <a href="https://podcasts.google.com/feed/aHR0cHM6Ly9mdXR1cmVvZndvcmtwb2RjYXN0LmxpYnN5bi5jb20vcnNz"
                        target="_blank"
                        rel="noopener noreferrer"
-                       className="flex flex-col items-center gap-2 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group">
-                      <FaGoogle className="w-8 h-8 text-blue-500 group-hover:scale-110 transition-transform" />
-                      <span className="text-sm font-medium text-center">Google<br/>Podcasts</span>
+                       className="flex flex-col items-center gap-3 p-5 bg-white border-2 border-gray-200 rounded-lg hover:border-blue-300 hover:shadow-md transition-all group">
+                      <FaGoogle className="w-10 h-10 text-blue-600 group-hover:scale-110 transition-transform" />
+                      <span className="text-sm font-semibold text-gray-800 text-center">Google<br/>Podcasts</span>
                     </a>
 
                     <a href="https://music.amazon.com/podcasts/cfcfbf68-733f-4e82-a3f8-6a97d0b9e651/The-Future-of-Work-With-Jacob-Morgan"
                        target="_blank"
                        rel="noopener noreferrer"
-                       className="flex flex-col items-center gap-2 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group">
-                      <FaAmazon className="w-8 h-8 text-orange-500 group-hover:scale-110 transition-transform" />
-                      <span className="text-sm font-medium text-center">Amazon<br/>Music</span>
+                       className="flex flex-col items-center gap-3 p-5 bg-white border-2 border-gray-200 rounded-lg hover:border-orange-300 hover:shadow-md transition-all group">
+                      <FaAmazon className="w-10 h-10 text-orange-600 group-hover:scale-110 transition-transform" />
+                      <span className="text-sm font-semibold text-gray-800 text-center">Amazon<br/>Music</span>
                     </a>
                   </div>
                 </div>
@@ -423,29 +423,32 @@ export default async function EpisodePage({ params }: EpisodePageProps) {
                               prose-h2:text-4xl prose-h2:mt-16 prose-h2:mb-8 prose-h2:leading-tight
                               prose-h3:text-3xl prose-h3:mt-12 prose-h3:mb-6 prose-h3:leading-tight
                               prose-h4:text-2xl prose-h4:mt-10 prose-h4:mb-5 prose-h4:leading-tight
-                              prose-p:text-gray-700 prose-p:leading-[2] prose-p:mb-10 prose-p:text-xl
-                              prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium
-                              prose-strong:text-gray-900 prose-strong:font-semibold
-                              prose-em:text-gray-600 prose-em:italic
+                              prose-p:text-gray-900 prose-p:leading-[2] prose-p:!my-10 prose-p:text-xl
+                              prose-a:text-blue-700 prose-a:no-underline hover:prose-a:underline prose-a:font-medium
+                              prose-strong:text-gray-900 prose-strong:font-bold
+                              prose-em:text-gray-800 prose-em:italic
                               prose-ul:my-10 prose-ul:space-y-4 prose-ol:my-10 prose-ol:space-y-4
-                              prose-li:text-gray-700 prose-li:leading-[1.8] prose-li:text-xl prose-li:mb-3
-                              prose-li:marker:text-blue-500
+                              prose-li:text-gray-900 prose-li:leading-[1.8] prose-li:text-xl prose-li:mb-3
+                              prose-li:marker:text-blue-700
                               prose-blockquote:border-l-4 prose-blockquote:border-orange-500
                               prose-blockquote:pl-10 prose-blockquote:py-8 prose-blockquote:my-12
-                              prose-blockquote:italic prose-blockquote:text-gray-600 prose-blockquote:text-2xl
+                              prose-blockquote:italic prose-blockquote:text-gray-800 prose-blockquote:text-2xl
                               prose-blockquote:bg-orange-50 prose-blockquote:rounded-r-lg prose-blockquote:leading-[1.7]
                               prose-img:rounded-xl prose-img:shadow-lg prose-img:my-12 prose-img:w-full
                               prose-figure:my-12
-                              prose-figcaption:text-center prose-figcaption:text-gray-500 prose-figcaption:text-base prose-figcaption:mt-4 prose-figcaption:leading-relaxed
-                              prose-code:text-blue-600 prose-code:bg-blue-50 prose-code:px-3 prose-code:py-2 prose-code:rounded prose-code:text-lg
+                              prose-figcaption:text-center prose-figcaption:text-gray-700 prose-figcaption:text-base prose-figcaption:mt-4 prose-figcaption:leading-relaxed
+                              prose-code:text-blue-800 prose-code:bg-blue-50 prose-code:px-3 prose-code:py-2 prose-code:rounded prose-code:text-lg prose-code:font-medium
                               prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:p-8 prose-pre:my-10 prose-pre:leading-relaxed prose-pre:overflow-auto
-                              prose-hr:border-gray-200 prose-hr:my-16
+                              prose-hr:border-gray-300 prose-hr:my-16
                               prose-table:my-10 prose-th:text-left prose-th:font-semibold prose-th:text-gray-900 prose-th:py-4 prose-th:text-lg
-                              prose-td:text-gray-700 prose-td:border-gray-200 prose-td:py-4 prose-td:leading-relaxed prose-td:text-lg
+                              prose-td:text-gray-900 prose-td:border-gray-300 prose-td:py-4 prose-td:leading-relaxed prose-td:text-lg
                               prose-video:w-full prose-video:rounded-xl prose-video:shadow-lg prose-video:my-12
                               prose-iframe:w-full prose-iframe:rounded-xl prose-iframe:shadow-lg prose-iframe:my-12
-                              first:prose-p:text-2xl first:prose-p:font-medium first:prose-p:text-gray-800 first:prose-p:leading-[1.8]">
-                  <div dangerouslySetInnerHTML={{ __html: episode.content.rendered }} />
+                              first:prose-p:text-2xl first:prose-p:font-medium first:prose-p:text-gray-900 first:prose-p:leading-[1.8]">
+                  <div
+                    className="episode-content"
+                    dangerouslySetInnerHTML={{ __html: episode.content.rendered }}
+                  />
                 </div>
               </div>
 

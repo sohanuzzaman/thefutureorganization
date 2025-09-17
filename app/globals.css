@@ -32,3 +32,17 @@ body {
     width: 100%;
   }
 }
+
+/* Episode content paragraph spacing */
+.episode-content p {
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.episode-content p:first-child {
+  margin-top: 0 !important;
+}
+
+.episode-content p:last-child {
+  margin-bottom: 0 !important;
+}
