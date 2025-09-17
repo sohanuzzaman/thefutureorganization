@@ -24,18 +24,26 @@ export default function PodcastPage() {
   const [posts, setPosts] = useState<PodcastPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const postsPerPage = 9;
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
+        setLoading(true);
         const response = await fetch(
-          "https://api.thefutureorganization.com/wp-json/wp/v2/posts?_embed&per_page=12"
+          `https://api.thefutureorganization.com/wp-json/wp/v2/posts?_embed&per_page=${postsPerPage}&page=${currentPage}&categories=3624`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch posts");
         }
         const data = await response.json();
+        const totalPosts = parseInt(response.headers.get('X-WP-Total') || '0');
+        const totalPagesCount = Math.ceil(totalPosts / postsPerPage);
+
         setPosts(data);
+        setTotalPages(totalPagesCount);
       } catch (err) {
         setError("Failed to load podcast episodes");
         console.error("Error fetching posts:", err);
@@ -45,7 +53,7 @@ export default function PodcastPage() {
     };
 
     fetchPosts();
-  }, []);
+  }, [currentPage]);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-US", {
@@ -222,61 +230,120 @@ export default function PodcastPage() {
           )}
 
           {!loading && !error && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {posts.map((post) => (
-                <article
-                  key={post.id}
-                  className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-                >
-                  {post._embedded?.["wp:featuredmedia"]?.[0] && (
-                    <div className="relative h-48">
-                      <Image
-                        src={post._embedded["wp:featuredmedia"][0].source_url}
-                        alt={post._embedded["wp:featuredmedia"][0].alt_text || post.title.rendered}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
-
-                  <div className="p-6">
-                    <time className="text-sm text-blue-600 font-medium">
-                      {formatDate(post.date)}
-                    </time>
-                    <h3 className="text-xl font-bold text-gray-900 mt-2 mb-3 line-clamp-2">
-                      <span
-                        dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-                      />
-                    </h3>
-                    <div
-                      className="text-gray-600 mb-4 line-clamp-3"
-                      dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-                    />
-                    <a
-                      href={post.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
-                    >
-                      Listen to Episode
-                      <svg
-                        className="ml-2 w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {posts.map((post) => (
+                  <article
+                    key={post.id}
+                    className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                  >
+                    <div className="relative aspect-square">
+                      {post._embedded?.["wp:featuredmedia"]?.[0] ? (
+                        <Image
+                          src={post._embedded["wp:featuredmedia"][0].source_url}
+                          alt={post._embedded["wp:featuredmedia"][0].alt_text || post.title.rendered}
+                          fill
+                          className="object-cover"
                         />
-                      </svg>
-                    </a>
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-blue-500 to-orange-400 flex items-center justify-center">
+                          <div className="text-center text-white p-4">
+                            <h4 className="font-bold text-lg mb-2">FUTURE READY</h4>
+                            <p className="text-sm">LEADERSHIP</p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="p-6">
+                      <time className="text-sm text-blue-600 font-medium">
+                        {formatDate(post.date)}
+                      </time>
+                      <h3 className="text-xl font-bold text-gray-900 mt-2 mb-3 line-clamp-2">
+                        <span
+                          dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                        />
+                      </h3>
+                      <div
+                        className="text-gray-600 mb-4 line-clamp-3"
+                        dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+                      />
+                      <a
+                        href={post.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
+                      >
+                        Listen to Episode
+                        <svg
+                          className="ml-2 w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </div>
+
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <div className="flex justify-center items-center mt-12 gap-2">
+                  <button
+                    onClick={() => setCurrentPage(currentPage - 1)}
+                    disabled={currentPage === 1}
+                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Previous
+                  </button>
+
+                  <div className="flex gap-1">
+                    {Array.from({ length: Math.min(totalPages, 5) }, (_, index) => {
+                      let pageNumber;
+                      if (totalPages <= 5) {
+                        pageNumber = index + 1;
+                      } else if (currentPage <= 3) {
+                        pageNumber = index + 1;
+                      } else if (currentPage >= totalPages - 2) {
+                        pageNumber = totalPages - 4 + index;
+                      } else {
+                        pageNumber = currentPage - 2 + index;
+                      }
+
+                      return (
+                        <button
+                          key={pageNumber}
+                          onClick={() => setCurrentPage(pageNumber)}
+                          className={`px-3 py-2 text-sm font-medium rounded-lg ${
+                            currentPage === pageNumber
+                              ? 'bg-blue-600 text-white'
+                              : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50'
+                          }`}
+                        >
+                          {pageNumber}
+                        </button>
+                      );
+                    })}
                   </div>
-                </article>
-              ))}
-            </div>
+
+                  <button
+                    onClick={() => setCurrentPage(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Next
+                  </button>
+                </div>
+              )}
+            </>
           )}
         </div>
       </section>
