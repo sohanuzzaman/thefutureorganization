@@ -8,6 +8,7 @@ import { Metadata } from "next";
 
 interface PodcastPost {
   id: number;
+  slug: string;
   title: { rendered: string };
   excerpt: { rendered: string };
   date: string;
@@ -262,64 +263,58 @@ export default async function PodcastPage({ searchParams }: PodcastPageProps) {
             <>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {posts.map((post: any) => (
-                  <article
-                    key={post.id}
-                    className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-                  >
-                    <div className="relative aspect-square">
-                      {post._embedded?.["wp:featuredmedia"]?.[0] ? (
-                        <Image
-                          src={post._embedded["wp:featuredmedia"][0].source_url}
-                          alt={post._embedded["wp:featuredmedia"][0].alt_text || post.title.rendered}
-                          fill
-                          className="object-cover"
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-blue-500 to-orange-400 flex items-center justify-center">
-                          <div className="text-center text-white p-4">
-                            <h4 className="font-bold text-lg mb-2">FUTURE READY</h4>
-                            <p className="text-sm">LEADERSHIP</p>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="p-6">
-                      <time className="text-sm text-blue-600 font-medium">
-                        {formatDate(post.date)}
-                      </time>
-                      <h3 className="text-xl font-bold text-gray-900 mt-2 mb-3 line-clamp-2">
-                        <span
-                          dangerouslySetInnerHTML={{ __html: post.title.rendered }}
-                        />
-                      </h3>
-                      <div
-                        className="text-gray-600 mb-4 line-clamp-3"
-                        dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
-                      />
-                      <a
-                        href={post.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200"
-                      >
-                        Listen to Episode
-                        <svg
-                          className="ml-2 w-4 h-4"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  <Link key={post.id} href={`/future-work-podcast/${post.slug}`}>
+                    <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer h-full">
+                      <div className="relative aspect-square">
+                        {post._embedded?.["wp:featuredmedia"]?.[0] ? (
+                          <Image
+                            src={post._embedded["wp:featuredmedia"][0].source_url}
+                            alt={post._embedded["wp:featuredmedia"][0].alt_text || post.title.rendered}
+                            fill
+                            className="object-cover"
                           />
-                        </svg>
-                      </a>
-                    </div>
-                  </article>
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-blue-500 to-orange-400 flex items-center justify-center">
+                            <div className="text-center text-white p-4">
+                              <h4 className="font-bold text-lg mb-2">FUTURE READY</h4>
+                              <p className="text-sm">LEADERSHIP</p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="p-6">
+                        <time className="text-sm text-blue-600 font-medium">
+                          {formatDate(post.date)}
+                        </time>
+                        <h3 className="text-xl font-bold text-gray-900 mt-2 mb-3 line-clamp-2">
+                          <span
+                            dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                          />
+                        </h3>
+                        <div
+                          className="text-gray-600 mb-4 line-clamp-3"
+                          dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}
+                        />
+                        <div className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium transition-colors duration-200">
+                          Read Episode
+                          <svg
+                            className="ml-2 w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                    </article>
+                  </Link>
                 ))}
               </div>
 
