@@ -1,9 +1,10 @@
-"use client";
-import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import Navigation from "../components/Navigation";
 import { FaApple, FaAmazon, FaSpotify, FaGoogle, FaRss } from "react-icons/fa";
 import { SiTunein, SiStitcher, SiIheartradio } from "react-icons/si";
+import { Metadata } from "next";
 
 interface PodcastPost {
   id: number;
@@ -20,40 +21,77 @@ interface PodcastPost {
   };
 }
 
-export default function PodcastPage() {
-  const [posts, setPosts] = useState<PodcastPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
+interface PodcastPageProps {
+  searchParams: { page?: string };
+}
+
+async function fetchPodcastPosts(page: number) {
   const postsPerPage = 9;
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(
-          `https://api.thefutureorganization.com/wp-json/wp/v2/posts?_embed&per_page=${postsPerPage}&page=${currentPage}&categories=3624`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch posts");
-        }
-        const data = await response.json();
-        const totalPosts = parseInt(response.headers.get('X-WP-Total') || '0');
-        const totalPagesCount = Math.ceil(totalPosts / postsPerPage);
+  try {
+    const response = await fetch(
+      `https://api.thefutureorganization.com/wp-json/wp/v2/posts?_embed&per_page=${postsPerPage}&page=${page}&categories=3624`,
+      { next: { revalidate: 300 } } // Revalidate every 5 minutes
+    );
 
-        setPosts(data);
-        setTotalPages(totalPagesCount);
-      } catch (err) {
-        setError("Failed to load podcast episodes");
-        console.error("Error fetching posts:", err);
-      } finally {
-        setLoading(false);
-      }
+    if (!response.ok) {
+      throw new Error("Failed to fetch posts");
+    }
+
+    const data = await response.json();
+    const totalPosts = parseInt(response.headers.get('X-WP-Total') || '0');
+    const totalPages = Math.ceil(totalPosts / postsPerPage);
+
+    return { posts: data, totalPages, totalPosts };
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    return { posts: [], totalPages: 1, totalPosts: 0 };
+  }
+}
+
+export async function generateMetadata({ searchParams }: PodcastPageProps): Promise<Metadata> {
+  const page = parseInt(searchParams.page || '1');
+
+  const baseTitle = "Future Ready Leadership Podcast with Jacob Morgan";
+  const baseDescription = "A weekly show where Jacob has in-depth conversations with the world's top business leaders, best-selling authors, and thinkers.";
+
+  if (page === 1) {
+    return {
+      title: baseTitle,
+      description: baseDescription,
+      openGraph: {
+        title: baseTitle,
+        description: baseDescription,
+        type: 'website',
+      },
     };
+  }
 
-    fetchPosts();
-  }, [currentPage]);
+  return {
+    title: `${baseTitle} - Page ${page}`,
+    description: `${baseDescription} Browse podcast episodes - Page ${page}.`,
+    openGraph: {
+      title: `${baseTitle} - Page ${page}`,
+      description: `${baseDescription} Browse podcast episodes - Page ${page}.`,
+      type: 'website',
+    },
+  };
+}
+
+export default async function PodcastPage({ searchParams }: PodcastPageProps) {
+  const currentPage = parseInt(searchParams.page || '1');
+
+  // Validate page number
+  if (isNaN(currentPage) || currentPage < 1) {
+    notFound();
+  }
+
+  const { posts, totalPages, totalPosts } = await fetchPodcastPosts(currentPage);
+
+  // If page number is greater than total pages, show 404
+  if (currentPage > totalPages && totalPages > 0) {
+    notFound();
+  }
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("en-US", {
@@ -216,23 +254,14 @@ export default function PodcastPage() {
             </p>
           </div>
 
-          {loading && (
+          {posts.length === 0 ? (
             <div className="text-center py-20">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-              <p className="mt-4 text-gray-600">Loading episodes...</p>
+              <p className="text-gray-600 text-lg">No podcast episodes found.</p>
             </div>
-          )}
-
-          {error && (
-            <div className="text-center py-20">
-              <p className="text-red-600 text-lg">{error}</p>
-            </div>
-          )}
-
-          {!loading && !error && (
+          ) : (
             <>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {posts.map((post) => (
+                {posts.map((post: any) => (
                   <article
                     key={post.id}
                     className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
@@ -297,13 +326,18 @@ export default function PodcastPage() {
               {/* Pagination */}
               {totalPages > 1 && (
                 <div className="flex justify-center items-center mt-12 gap-2">
-                  <button
-                    onClick={() => setCurrentPage(currentPage - 1)}
-                    disabled={currentPage === 1}
-                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    Previous
-                  </button>
+                  {currentPage > 1 ? (
+                    <Link
+                      href={`/future-work-podcast${currentPage === 2 ? '' : `?page=${currentPage - 1}`}`}
+                      className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                    >
+                      Previous
+                    </Link>
+                  ) : (
+                    <span className="px-4 py-2 text-sm font-medium text-gray-400 bg-gray-100 border border-gray-300 rounded-lg cursor-not-allowed">
+                      Previous
+                    </span>
+                  )}
 
                   <div className="flex gap-1">
                     {Array.from({ length: Math.min(totalPages, 5) }, (_, index) => {
@@ -318,29 +352,40 @@ export default function PodcastPage() {
                         pageNumber = currentPage - 2 + index;
                       }
 
-                      return (
-                        <button
+                      const isCurrentPage = currentPage === pageNumber;
+                      const href = pageNumber === 1 ? '/future-work-podcast' : `/future-work-podcast?page=${pageNumber}`;
+
+                      return isCurrentPage ? (
+                        <span
                           key={pageNumber}
-                          onClick={() => setCurrentPage(pageNumber)}
-                          className={`px-3 py-2 text-sm font-medium rounded-lg ${
-                            currentPage === pageNumber
-                              ? 'bg-blue-600 text-white'
-                              : 'text-gray-700 bg-white border border-gray-300 hover:bg-gray-50'
-                          }`}
+                          className="px-3 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white"
                         >
                           {pageNumber}
-                        </button>
+                        </span>
+                      ) : (
+                        <Link
+                          key={pageNumber}
+                          href={href}
+                          className="px-3 py-2 text-sm font-medium rounded-lg text-gray-700 bg-white border border-gray-300 hover:bg-gray-50 transition-colors"
+                        >
+                          {pageNumber}
+                        </Link>
                       );
                     })}
                   </div>
 
-                  <button
-                    onClick={() => setCurrentPage(currentPage + 1)}
-                    disabled={currentPage === totalPages}
-                    className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    Next
-                  </button>
+                  {currentPage < totalPages ? (
+                    <Link
+                      href={`/future-work-podcast?page=${currentPage + 1}`}
+                      className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                    >
+                      Next
+                    </Link>
+                  ) : (
+                    <span className="px-4 py-2 text-sm font-medium text-gray-400 bg-gray-100 border border-gray-300 rounded-lg cursor-not-allowed">
+                      Next
+                    </span>
+                  )}
                 </div>
               )}
             </>
