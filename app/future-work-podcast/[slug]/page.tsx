@@ -370,10 +370,10 @@ export default async function EpisodePage({ params }: EpisodePageProps) {
 
         {/* Main Content */}
         <main className="py-12">
-          <article className="max-w-5xl mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <article className="max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
               {/* Main Content Column */}
-              <div className="lg:col-span-2">
+              <div className="lg:col-span-3">
                 {/* Listen Section */}
                 <div className="bg-white p-8 rounded-xl shadow-lg mb-8">
                   <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
@@ -417,32 +417,34 @@ export default async function EpisodePage({ params }: EpisodePageProps) {
                 </div>
 
                 {/* Episode Content */}
-                <div className="bg-white p-8 lg:p-12 rounded-xl shadow-lg prose prose-xl max-w-none
+                <div className="bg-white p-10 lg:p-16 rounded-xl shadow-lg prose prose-2xl max-w-none
                               prose-headings:font-bold prose-headings:text-gray-900 prose-headings:tracking-tight
-                              prose-h1:text-4xl prose-h1:mt-12 prose-h1:mb-6 prose-h1:leading-tight
-                              prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-5 prose-h2:leading-snug
-                              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-h3:leading-snug
-                              prose-h4:text-xl prose-h4:mt-6 prose-h4:mb-3
-                              prose-p:text-gray-700 prose-p:leading-loose prose-p:mb-6 prose-p:text-lg
+                              prose-h1:text-5xl prose-h1:mt-16 prose-h1:mb-10 prose-h1:leading-tight
+                              prose-h2:text-4xl prose-h2:mt-16 prose-h2:mb-8 prose-h2:leading-tight
+                              prose-h3:text-3xl prose-h3:mt-12 prose-h3:mb-6 prose-h3:leading-tight
+                              prose-h4:text-2xl prose-h4:mt-10 prose-h4:mb-5 prose-h4:leading-tight
+                              prose-p:text-gray-700 prose-p:leading-[2] prose-p:mb-10 prose-p:text-xl
                               prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium
                               prose-strong:text-gray-900 prose-strong:font-semibold
                               prose-em:text-gray-600 prose-em:italic
-                              prose-ul:my-6 prose-ul:space-y-2 prose-ol:my-6 prose-ol:space-y-2
-                              prose-li:text-gray-700 prose-li:leading-relaxed prose-li:text-lg
+                              prose-ul:my-10 prose-ul:space-y-4 prose-ol:my-10 prose-ol:space-y-4
+                              prose-li:text-gray-700 prose-li:leading-[1.8] prose-li:text-xl prose-li:mb-3
                               prose-li:marker:text-blue-500
                               prose-blockquote:border-l-4 prose-blockquote:border-orange-500
-                              prose-blockquote:pl-8 prose-blockquote:py-4 prose-blockquote:my-8
-                              prose-blockquote:italic prose-blockquote:text-gray-600 prose-blockquote:text-xl
-                              prose-blockquote:bg-orange-50 prose-blockquote:rounded-r-lg
-                              prose-img:rounded-xl prose-img:shadow-lg prose-img:my-8
-                              prose-figure:my-8
-                              prose-figcaption:text-center prose-figcaption:text-gray-500 prose-figcaption:text-sm prose-figcaption:mt-2
-                              prose-code:text-blue-600 prose-code:bg-blue-50 prose-code:px-2 prose-code:py-1 prose-code:rounded
-                              prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:p-6 prose-pre:my-6
-                              prose-hr:border-gray-200 prose-hr:my-8
-                              prose-table:my-6 prose-th:text-left prose-th:font-semibold prose-th:text-gray-900
-                              prose-td:text-gray-700 prose-td:border-gray-200
-                              first:prose-p:text-xl first:prose-p:font-medium first:prose-p:text-gray-800">
+                              prose-blockquote:pl-10 prose-blockquote:py-8 prose-blockquote:my-12
+                              prose-blockquote:italic prose-blockquote:text-gray-600 prose-blockquote:text-2xl
+                              prose-blockquote:bg-orange-50 prose-blockquote:rounded-r-lg prose-blockquote:leading-[1.7]
+                              prose-img:rounded-xl prose-img:shadow-lg prose-img:my-12 prose-img:w-full
+                              prose-figure:my-12
+                              prose-figcaption:text-center prose-figcaption:text-gray-500 prose-figcaption:text-base prose-figcaption:mt-4 prose-figcaption:leading-relaxed
+                              prose-code:text-blue-600 prose-code:bg-blue-50 prose-code:px-3 prose-code:py-2 prose-code:rounded prose-code:text-lg
+                              prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:p-8 prose-pre:my-10 prose-pre:leading-relaxed prose-pre:overflow-auto
+                              prose-hr:border-gray-200 prose-hr:my-16
+                              prose-table:my-10 prose-th:text-left prose-th:font-semibold prose-th:text-gray-900 prose-th:py-4 prose-th:text-lg
+                              prose-td:text-gray-700 prose-td:border-gray-200 prose-td:py-4 prose-td:leading-relaxed prose-td:text-lg
+                              prose-video:w-full prose-video:rounded-xl prose-video:shadow-lg prose-video:my-12
+                              prose-iframe:w-full prose-iframe:rounded-xl prose-iframe:shadow-lg prose-iframe:my-12
+                              first:prose-p:text-2xl first:prose-p:font-medium first:prose-p:text-gray-800 first:prose-p:leading-[1.8]">
                   <div dangerouslySetInnerHTML={{ __html: episode.content.rendered }} />
                 </div>
               </div>
