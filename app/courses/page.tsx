@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
+import TestimonialsSection from "../components/TestimonialsSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -86,8 +87,7 @@ export default function CoursesPage() {
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8">
-            LEADERSHIP, EMPLOYEE EXPERIENCE, &<br />
-            THE FUTURE OF WORK COURSES
+            LEADERSHIP, EMPLOYEE EXPERIENCE, & THE FUTURE OF WORK COURSES
           </h1>
 
           <div className="max-w-4xl mx-auto">
@@ -117,71 +117,209 @@ export default function CoursesPage() {
         </div>
       </section>
 
-      {/* Courses Section - Placeholder for now */}
+      {/* Courses Grid */}
       <section id="courses" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Featured Courses
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Explore our comprehensive training programs designed to transform leaders and organizations for the future of work.
-            </p>
-          </div>
+          <div className="grid grid-cols-1 gap-6">
 
-          {/* Course cards will be added here based on API data or additional requirements */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Placeholder for course cards */}
-            <div className="bg-gray-100 rounded-lg p-8 text-center">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Leadership Development</h3>
-              <p className="text-gray-600 mb-6">
-                Transform your leadership approach for the modern workplace.
-              </p>
-              <button className="text-blue-600 font-semibold hover:text-blue-700">
-                Learn More
-              </button>
+            {/* Course 1: The Customer of the Future Course */}
+            <div className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="flex flex-col md:flex-row">
+                <div className="relative w-full md:w-72 h-40 md:h-48 flex-shrink-0">
+                  <Image
+                    src="/assets/images/2023/11/The-customer-of-the-future.png"
+                    alt="The Customer of the Future Course"
+                    fill
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="p-6 flex-1">
+                  <p className="text-sm text-gray-600 mb-2">Course Length: 3 hours</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">The Customer of the Future Course</h3>
+                  <p className="text-gray-700 mb-6">
+                    With emerging technology transforming customer expectations, it's more important than ever to keep a laser focus on the experience companies provide their customers. In The Customer Of The Future course Blake brings you the psychological, technical and experiential aspects of a customer strategy you can immediately apply at your own company.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-2xl font-bold text-gray-900">$299</p>
+                    <a
+                      href="https://education.blakemichellemorgan.com/the-customer-of-the-future"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                    >
+                      Enroll Now
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-gray-100 rounded-lg p-8 text-center">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Employee Experience</h3>
-              <p className="text-gray-600 mb-6">
-                Create exceptional experiences that engage and retain talent.
-              </p>
-              <button className="text-blue-600 font-semibold hover:text-blue-700">
-                Learn More
-              </button>
+            {/* Course 2: The Future Leader Course */}
+            <div className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="flex flex-col md:flex-row">
+                <div className="relative w-full md:w-72 h-40 md:h-48 flex-shrink-0">
+                  <Image
+                    src="/assets/images/2023/11/future-leader-course.png"
+                    alt="The Future Leader Course"
+                    fill
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="p-6 flex-1">
+                  <p className="text-sm text-gray-600 mb-2">Course Length: 4-5 hours</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">The Future Leader Course</h3>
+                  <p className="text-gray-700 mb-6">
+                    Drawing from interviews with 140+ global CEOs and a 14,000-employee survey, Jacob's course equips tomorrow's leaders with crucial insights. It spotlights 4 key mindsets and 5 skills for leading in today's dynamic workplace. Extracted from corporate giants like Unilever and MasterCard, this course is a blueprint for organizational success.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-2xl font-bold text-gray-900">$699</p>
+                    <a
+                      href="https://training.thefutureorganization.com/the-future-leader-course-checkout"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                    >
+                      Enroll Now
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-gray-100 rounded-lg p-8 text-center">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Future of Work</h3>
-              <p className="text-gray-600 mb-6">
-                Prepare your organization for the evolving workplace landscape.
-              </p>
-              <button className="text-blue-600 font-semibold hover:text-blue-700">
-                Learn More
-              </button>
+            {/* Course 3: Employee Experience Crash Course */}
+            <div className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="flex flex-col md:flex-row">
+                <div className="relative w-full md:w-72 h-40 md:h-48 flex-shrink-0">
+                  <Image
+                    src="/assets/images/2023/11/employee-experience-course-1.png"
+                    alt="Employee Experience Crash Course"
+                    fill
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="p-6 flex-1">
+                  <p className="text-sm text-gray-600 mb-2">Course Length: 4-5 hours</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Employee Experience Crash Course</h3>
+                  <p className="text-gray-700 mb-6">
+                    Analyzed from 252+ global organizations, this course redefines employee experience as a key business trend. It uncovers the true influence of culture, technology, and physical space, proving engagement programs' shortfalls. The aim is to foster an environment where employees WANT to be part of your organization, not merely NEED to be.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-2xl font-bold text-gray-900">$499</p>
+                    <a
+                      href="https://training.thefutureorganization.com/ee-crash-course-checkout"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                    >
+                      Enroll Now
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            {/* Course 4: The Future of Work Fast Track */}
+            <div className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="flex flex-col md:flex-row">
+                <div className="relative w-full md:w-72 h-40 md:h-48 flex-shrink-0">
+                  <Image
+                    src="/assets/images/2023/11/fast-track.png"
+                    alt="The Future of Work Fast Track"
+                    fill
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="p-6 flex-1">
+                  <p className="text-sm text-gray-600 mb-2">Course Length: 4-5 hours</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">The Future of Work Fast Track</h3>
+                  <p className="text-gray-700 mb-6">
+                    If you want to thrive in the future of work there are 12 skills you have to master and this course will teach out how to do just that. These include things like: learning to learn, thinking like an entrepreneur, collaborating, disconnecting from technology, having a growth mindset, and others. This program is designed for anyone looking to thrive in the new world of work.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-2xl font-bold text-gray-900">$799</p>
+                    <a
+                      href="https://training.thefutureorganization.com/fast-track-checkout"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                    >
+                      Enroll Now
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Course 5: The Morgan's 4 M's of Entrepreneurship */}
+            <div className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="flex flex-col md:flex-row">
+                <div className="relative w-full md:w-72 h-40 md:h-48 flex-shrink-0">
+                  <Image
+                    src="/assets/images/2023/11/entrepreneurship.png"
+                    alt="The Morgan's 4 M's of Entrepreneurship"
+                    fill
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="p-6 flex-1">
+                  <p className="text-sm text-gray-600 mb-2">Course Length: 90 minutes</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">The Morgan's 4 M's of Entrepreneurship</h3>
+                  <p className="text-gray-700 mb-6">
+                    The Framework to Become Your Own Boss. This is the same framework we used to build a 7-figure business And we want to share it with you!
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-2xl font-bold text-gray-900">$53</p>
+                    <a
+                      href="https://www.byobpodcast.com/morgans-4m-entrepreneurship-course"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                    >
+                      Enroll Now
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Course 6: The 31 Day Leadership Reset */}
+            <div className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="flex flex-col md:flex-row">
+                <div className="relative w-full md:w-72 h-40 md:h-48 flex-shrink-0">
+                  <Image
+                    src="/assets/images/2023/11/leadership-reset.png"
+                    alt="The 31 Day Leadership Reset"
+                    fill
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="p-6 flex-1">
+                  <p className="text-sm text-gray-600 mb-2">Course Length: 31 videos</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">The 31 Day Leadership Reset</h3>
+                  <p className="text-gray-700 mb-6">
+                    31 videos where Jacob will share a leadership hack, tip, technique, or strategy from one of the world's top CEOs. Each video is 3-5 mins in length and is practical and actionable. You will learn what these world-class leaders are doing in their own personal and professional lives to be successful leaders.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-2xl font-bold text-gray-900">$67</p>
+                    <a
+                      href="https://www.futureofworkuniversity.com/offers/U2eDs4Sx/checkout"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                    >
+                      Enroll Now
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* Contact CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-orange-500">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Transform Your Organization?
-          </h2>
-          <p className="text-lg text-white mb-8 opacity-90">
-            Contact Jacob Morgan to discuss custom training solutions and bulk seat discounts for your team.
-          </p>
-          <a
-            href="mailto:Jacob@thefutureorganization.com?subject=Course Inquiry"
-            className="inline-flex items-center justify-center px-10 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition-colors"
-          >
-            Get Started Today
-          </a>
-        </div>
-      </section>
+      {/* Testimonials Section */}
+      <TestimonialsSection />
 
       {/* Footer */}
       <footer className="bg-white border-t border-gray-200 py-12">
