@@ -8,7 +8,7 @@ export default function Navigation() {
     { name: "Home", href: "/" },
     { name: "Speaking", href: "/future-ready-keynote-speaker-jacob-morgan" },
     { name: "Books", href: "/books" },
-    { name: "Podcast", href: "/podcast" },
+    { name: "Podcast", href: "/future-work-podcast" },
     { name: "Courses", href: "/courses" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
