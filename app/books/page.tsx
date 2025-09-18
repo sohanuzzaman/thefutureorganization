@@ -66,6 +66,8 @@ export default function BooksPage() {
                     width={350}
                     height={400}
                     className="rounded-2xl transform hover:scale-105 transition-transform duration-500"
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 350px"
                   />
                   <div className="absolute -top-4 -right-4 bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold">
                     LATEST
@@ -175,6 +177,7 @@ export default function BooksPage() {
                   width={350}
                   height={400}
                   className="rounded-2xl transform hover:scale-105 transition-transform duration-500"
+                  priority
                 />
               </div>
 

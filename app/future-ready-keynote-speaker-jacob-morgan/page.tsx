@@ -29,17 +29,21 @@ export default function SpeakingPage() {
       {/* Hero Section */}
       <section className="hero-section relative h-[800px] lg:h-[600px] overflow-hidden">
         {/* Desktop Background Image */}
-        <img
+        <Image
           src="/assets/images/header-speaking2-scaled.webp"
           alt="Jacob Morgan Speaking"
-          className="hidden lg:block absolute inset-0 w-full h-full object-cover scale-105 animate-[zoomIn_15s_ease-in-out_infinite_alternate]"
+          fill
+          className="hidden lg:block object-cover scale-105 animate-[zoomIn_15s_ease-in-out_infinite_alternate]"
+          priority
         />
 
         {/* Mobile Background Image */}
-        <img
+        <Image
           src="/assets/images/header-speaking3-scaled.webp"
           alt="Jacob Morgan Speaking"
-          className="lg:hidden absolute inset-0 w-full h-full object-cover scale-105 animate-[zoomIn_15s_ease-in-out_infinite_alternate]"
+          fill
+          className="lg:hidden object-cover scale-105 animate-[zoomIn_15s_ease-in-out_infinite_alternate]"
+          priority
         />
 
         {/* Overlay removed for better image visibility */}
@@ -175,10 +179,11 @@ export default function SpeakingPage() {
             {/* Topic 1 - Future-Ready Leadership */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-xl transform hover:scale-105 transition-all duration-300 group">
               <div className="relative h-48 overflow-hidden">
-                <img
+                <Image
                   src="/assets/images/arrow.png"
                   alt="Future-Ready Leadership"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
@@ -196,10 +201,11 @@ export default function SpeakingPage() {
             {/* Topic 2 - The Human Edge */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-xl transform hover:scale-105 transition-all duration-300 group">
               <div className="relative h-48 overflow-hidden">
-                <img
+                <Image
                   src="/assets/images/feature-2.png"
                   alt="The Human Edge"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
@@ -217,10 +223,11 @@ export default function SpeakingPage() {
             {/* Topic 3 - 8 Laws Of Employee Experience */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-xl transform hover:scale-105 transition-all duration-300 group">
               <div className="relative h-48 overflow-hidden">
-                <img
+                <Image
                   src="/assets/images/feature3.png"
                   alt="8 Laws Of Employee Experience"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
@@ -238,10 +245,11 @@ export default function SpeakingPage() {
             {/* Topic 4 - The Future of Work */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-xl transform hover:scale-105 transition-all duration-300 group">
               <div className="relative h-48 overflow-hidden">
-                <img
+                <Image
                   src="/assets/images/feature4.jpg"
                   alt="The Future of Work"
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>

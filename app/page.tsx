@@ -93,6 +93,7 @@ export default function Home() {
               width={800}
               height={300}
               className="mx-auto transform group-hover:scale-105 transition-transform duration-500 animate-[fadeInUp_1.2s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]"
+              priority
             />
           </div>
 
