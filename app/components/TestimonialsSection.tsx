@@ -376,14 +376,15 @@ export default function TestimonialsSection() {
               <button
                 onClick={prevSlide}
                 disabled={isTransitioning}
-                className={`absolute -left-4 md:-left-8 lg:-left-12 top-1/2 transform -translate-y-1/2 z-30 group ${
+                className={`absolute -left-4 md:-left-8 lg:-left-12 top-1/2 transform -translate-y-1/2 z-50 group ${
                   isTransitioning ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
+                style={{ zIndex: 9999 }}
                 aria-label="Previous testimonial"
               >
-                <div className="relative">
+                <div className="relative z-50">
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full blur-lg opacity-0 group-hover:opacity-60 transition-opacity"></div>
-                  <div className="relative bg-white hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-600 text-gray-700 hover:text-white p-2 md:p-3 rounded-full shadow-xl border-2 border-gray-100 hover:border-transparent transition-all duration-300 group-hover:scale-110 group-active:scale-95">
+                  <div className="relative bg-white hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-600 text-gray-700 hover:text-white p-2 md:p-3 rounded-full shadow-2xl border-2 border-gray-100 hover:border-transparent transition-all duration-300 group-hover:scale-110 group-active:scale-95">
                     <svg className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
                     </svg>
@@ -394,14 +395,15 @@ export default function TestimonialsSection() {
               <button
                 onClick={nextSlide}
                 disabled={isTransitioning}
-                className={`absolute -right-4 md:-right-8 lg:-right-12 top-1/2 transform -translate-y-1/2 z-30 group ${
+                className={`absolute -right-4 md:-right-8 lg:-right-12 top-1/2 transform -translate-y-1/2 z-50 group ${
                   isTransitioning ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
+                style={{ zIndex: 9999 }}
                 aria-label="Next testimonial"
               >
-                <div className="relative">
+                <div className="relative z-50">
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full blur-lg opacity-0 group-hover:opacity-60 transition-opacity"></div>
-                  <div className="relative bg-white hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-600 text-gray-700 hover:text-white p-2 md:p-3 rounded-full shadow-xl border-2 border-gray-100 hover:border-transparent transition-all duration-300 group-hover:scale-110 group-active:scale-95">
+                  <div className="relative bg-white hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-600 text-gray-700 hover:text-white p-2 md:p-3 rounded-full shadow-2xl border-2 border-gray-100 hover:border-transparent transition-all duration-300 group-hover:scale-110 group-active:scale-95">
                     <svg className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                     </svg>
