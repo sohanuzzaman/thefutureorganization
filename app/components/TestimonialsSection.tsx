@@ -41,10 +41,12 @@ export default function TestimonialsSection() {
       try {
         const response = await fetch('https://api.thefutureorganization.com/wp-json/wp/v2/testimonials?status=publish');
         const data = await response.json();
-        // Double-check to filter only published testimonials
-        const publishedTestimonials = data.filter((testimonial: Testimonial) =>
-          testimonial.status === 'publish'
-        );
+        // Filter only published testimonials with content
+        const publishedTestimonials = data.filter((testimonial: Testimonial) => {
+          const hasContent = testimonial.content.rendered &&
+            testimonial.content.rendered.replace(/<[^>]*>/g, '').trim() !== '';
+          return testimonial.status === 'publish' && hasContent;
+        });
         setTestimonials(publishedTestimonials);
       } catch (error) {
         console.error('Error fetching testimonials:', error);
