@@ -141,7 +141,7 @@ export default function BooksPage() {
                     </div>
                   </div>
                   <p className="text-gray-700 italic leading-relaxed">
-                    "A thoughtful, resourceful read on how leaders can be more candid about their forbles and fears without sacrificing their effectiveness. If you've recognized the importance of vulnerability but aren't sure how to bring it into your workplace, this book is for you."
+                    &ldquo;A thoughtful, resourceful read on how leaders can be more candid about their forbles and fears without sacrificing their effectiveness. If you&apos;ve recognized the importance of vulnerability but aren&apos;t sure how to bring it into your workplace, this book is for you.&rdquo;
                   </p>
                 </div>
 
@@ -155,7 +155,7 @@ export default function BooksPage() {
                     </div>
                   </div>
                   <p className="text-gray-700 italic leading-relaxed">
-                    "This book is a serious game-changer, because we've been thinking about leadership all wrong. Whether you're a CEO of a Fortune 500 or an entrepreneur with a team of two, Leading with Vulnerability is packed with strategies and practical tools to help you become a leader who knows how to make an impact."
+                    &ldquo;This book is a serious game-changer, because we&apos;ve been thinking about leadership all wrong. Whether you&apos;re a CEO of a Fortune 500 or an entrepreneur with a team of two, Leading with Vulnerability is packed with strategies and practical tools to help you become a leader who knows how to make an impact.&rdquo;
                   </p>
                 </div>
               </div>
@@ -232,7 +232,7 @@ export default function BooksPage() {
                     </div>
                   </div>
                   <p className="text-gray-700 italic leading-relaxed">
-                    "I applaud Jacob in assembling such a powerful and inclusive collection of voices for leaders around the world to learn from. Whether you're a current or future leader, this book is one to read and keep near you."
+                    &ldquo;I applaud Jacob in assembling such a powerful and inclusive collection of voices for leaders around the world to learn from. Whether you&apos;re a current or future leader, this book is one to read and keep near you.&rdquo;
                   </p>
                 </div>
 
@@ -260,7 +260,7 @@ export default function BooksPage() {
                     </div>
                   </div>
                   <p className="text-gray-700 italic leading-relaxed">
-                    "Jacob's book answers the most pressing questions on the future of leadership. Based on impressive research, this is the guidebook for the next generation of leaders around the world."
+                    &ldquo;Jacob&apos;s book answers the most pressing questions on the future of leadership. Based on impressive research, this is the guidebook for the next generation of leaders around the world.&rdquo;
                   </p>
                 </div>
               </div>
@@ -337,7 +337,7 @@ export default function BooksPage() {
                     </div>
                   </div>
                   <p className="text-gray-700 italic leading-relaxed">
-                    "Companies that invest time and energy in the employee experience will crush those that don't. This book and the research behind it proves that. Wanna win? Read this!"
+                    &ldquo;Companies that invest time and energy in the employee experience will crush those that don&apos;t. This book and the research behind it proves that. Wanna win? Read this!&rdquo;
                   </p>
                 </div>
 
@@ -351,7 +351,7 @@ export default function BooksPage() {
                     </div>
                   </div>
                   <p className="text-gray-700 italic leading-relaxed">
-                    "Jacob's book shares case studies, research and unique models to demonstrate the incredible value of building amazing teams and transforming how work is done to positively impact business results."
+                    &ldquo;Jacob&apos;s book shares case studies, research and unique models to demonstrate the incredible value of building amazing teams and transforming how work is done to positively impact business results.&rdquo;
                   </p>
                 </div>
 
@@ -456,7 +456,7 @@ export default function BooksPage() {
                     </div>
                   </div>
                   <p className="text-gray-700 italic leading-relaxed">
-                    "Jacob cracks the code on the biggest mystery in the workplace, what it takes to build and sustain a new generation of loyal, engaged, and inspired colleagues. It's impossible to read this book and not challenge the status quo."
+                    &ldquo;Jacob cracks the code on the biggest mystery in the workplace, what it takes to build and sustain a new generation of loyal, engaged, and inspired colleagues. It&apos;s impossible to read this book and not challenge the status quo.&rdquo;
                   </p>
                 </div>
 
@@ -470,7 +470,7 @@ export default function BooksPage() {
                     </div>
                   </div>
                   <p className="text-gray-700 italic leading-relaxed">
-                    "Morgan's book offers a compelling look into the future -- how all of us will work, how many of us will lead, and how organizations themselves must transform in the face of these changes."
+                    &ldquo;Morgan&apos;s book offers a compelling look into the future -- how all of us will work, how many of us will lead, and how organizations themselves must transform in the face of these changes.&rdquo;
                   </p>
                 </div>
               </div>

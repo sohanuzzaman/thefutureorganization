@@ -61,7 +61,7 @@ export default function AboutPage() {
                 <div className="pl-8">
                   <div className="prose prose-xl max-w-none">
                     <p className="text-xl md:text-2xl leading-relaxed text-gray-800 font-medium hover:text-[#1e3a8a] transition-colors duration-300">
-                      Jacob's family is from The Republic of Georgia which used to be a part of the former U.S.S.R. They came to America with no money, no possessions, and without speaking a word of English. Through sheer hard work, determination, and will, they were able to build a life for themselves and their family. Jacob was raised with the belief that if you work hard, you can accomplish anything, that it's always better to lead instead of follow, and that anyone has the potential to lead.
+                      Jacob&apos;s family is from The Republic of Georgia which used to be a part of the former U.S.S.R. They came to America with no money, no possessions, and without speaking a word of English. Through sheer hard work, determination, and will, they were able to build a life for themselves and their family. Jacob was raised with the belief that if you work hard, you can accomplish anything, that it&apos;s always better to lead instead of follow, and that anyone has the potential to lead.
                     </p>
                   </div>
                 </div>
@@ -94,7 +94,7 @@ export default function AboutPage() {
           <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 hover-lift animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: '0.3s'}}>
             <div className="prose prose-lg max-w-none text-gray-700">
               <p className="text-lg leading-relaxed hover:text-gray-900 transition-colors duration-300">
-                After graduating with honors in business management economics and psychology from the University of California Santa Cruz, Jacob was excited to join the corporate world. At his first job he was told that he'd be traveling the country, meeting with executives and entrepreneurs, and doing all sorts of exciting work. A few months in, he was stuck doing data entry, cold calling, and PowerPoint presentations. One day the CEO came out of his nice corner office, handed Jacob a $10 bill and said, "I'm late for a meeting, go grab me a cup of coffee, and get something for yourself as well." <strong className="text-orange-600 hover:text-orange-700 transition-colors duration-300">That was the last corporate job he ever had.</strong>
+                After graduating with honors in business management economics and psychology from the University of California Santa Cruz, Jacob was excited to join the corporate world. At his first job he was told that he&apos;d be traveling the country, meeting with executives and entrepreneurs, and doing all sorts of exciting work. A few months in, he was stuck doing data entry, cold calling, and PowerPoint presentations. One day the CEO came out of his nice corner office, handed Jacob a $10 bill and said, &ldquo;I&apos;m late for a meeting, go grab me a cup of coffee, and get something for yourself as well.&rdquo; <strong className="text-orange-600 hover:text-orange-700 transition-colors duration-300">That was the last corporate job he ever had.</strong>
               </p>
             </div>
           </div>
@@ -124,7 +124,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-2xl md:text-3xl leading-relaxed text-gray-700 font-medium">
-              Jacob's mission and passion is to create great leaders, engaged employees, and future-ready organizations and everything he does is based on those three pillars. His work has been endorsed by Adam Grant, Seth Godin, Marshall Goldsmith and the CEOs of Best Buy, Cisco, SAP, Mastercard, KPMG, Yum! Brands, The Ritz Carlton, Whirlpool, Yum! Brands, Atari, and countless mirzdorov.
+              Jacob&apos;s mission and passion is to create great leaders, engaged employees, and future-ready organizations and everything he does is based on those three pillars. His work has been endorsed by Adam Grant, Seth Godin, Marshall Goldsmith and the CEOs of Best Buy, Cisco, SAP, Mastercard, KPMG, Yum! Brands, The Ritz Carlton, Whirlpool, Yum! Brands, Atari, and countless mirzdorov.
             </p>
           </div>
         </div>

@@ -80,7 +80,7 @@ export default function Home() {
       <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-[#334155] mb-6 animate-[fadeInUp_0.8s_ease-out] hover:text-[#1e3a8a] transition-colors duration-300">
-            Read Jacob's Books
+            Read Jacob&apos;s Books
           </h2>
           <p className="text-lg text-[#334155] mb-8 max-w-3xl mx-auto animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s]">
             Discover the insights and strategies that have helped thousands of leaders and organizations prepare for the future.
@@ -97,7 +97,7 @@ export default function Home() {
           </div>
 
           <button className="bg-[#1e3a8a] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#1e40af] hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl animate-[fadeInUp_1.4s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.6s]">
-            See Jacob's Books
+            See Jacob&apos;s Books
           </button>
         </div>
       </section>

@@ -6,21 +6,6 @@ import { FaApple, FaAmazon, FaSpotify, FaGoogle, FaRss } from "react-icons/fa";
 import { SiTunein, SiStitcher, SiIheartradio } from "react-icons/si";
 import { Metadata } from "next";
 
-interface PodcastPost {
-  id: number;
-  slug: string;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  date: string;
-  link: string;
-  featured_media: number;
-  _embedded?: {
-    "wp:featuredmedia"?: Array<{
-      source_url: string;
-      alt_text: string;
-    }>;
-  };
-}
 
 interface PodcastPageProps {
   searchParams: { page?: string };
@@ -54,7 +39,7 @@ export async function generateMetadata({ searchParams }: PodcastPageProps): Prom
   const page = parseInt(searchParams.page || '1');
 
   const baseTitle = "Future Ready Leadership Podcast with Jacob Morgan";
-  const baseDescription = "A weekly show where Jacob has in-depth conversations with the world's top business leaders, best-selling authors, and thinkers.";
+  const baseDescription = "A weekly show where Jacob has in-depth conversations with the world&apos;s top business leaders, best-selling authors, and thinkers.";
 
   if (page === 1) {
     return {
@@ -87,7 +72,7 @@ export default async function PodcastPage({ searchParams }: PodcastPageProps) {
     notFound();
   }
 
-  const { posts, totalPages, totalPosts } = await fetchPodcastPosts(currentPage);
+  const { posts, totalPages } = await fetchPodcastPosts(currentPage);
 
   // If page number is greater than total pages, show 404
   if (currentPage > totalPages && totalPages > 0) {
@@ -190,7 +175,7 @@ export default async function PodcastPage({ searchParams }: PodcastPageProps) {
           {/* Text */}
           <div className="flex-1 text-center lg:text-left">
             <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed">
-              A weekly show where Jacob has in-depth conversations with the world's top business leaders, best-selling authors, and thinkers.
+              A weekly show where Jacob has in-depth conversations with the world&apos;s top business leaders, best-selling authors, and thinkers.
             </p>
           </div>
 
@@ -262,7 +247,7 @@ export default async function PodcastPage({ searchParams }: PodcastPageProps) {
           ) : (
             <>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {posts.map((post: any) => (
+                {posts.map((post: { id: number; slug: string; title: { rendered: string }; excerpt: { rendered: string }; date: string; _embedded?: { "wp:featuredmedia"?: Array<{ source_url: string; alt_text: string }> } }) => (
                   <Link key={post.id} href={`/future-work-podcast/${post.slug}`}>
                     <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer h-full">
                       <div className="relative aspect-square">

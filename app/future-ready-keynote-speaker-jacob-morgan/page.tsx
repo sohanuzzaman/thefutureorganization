@@ -47,7 +47,7 @@ export default function SpeakingPage() {
         <div className="container mx-auto px-4 relative z-10 h-full">
           {/* Desktop Layout */}
           <div className="hidden lg:grid lg:grid-cols-2 h-full items-center">
-            {/* Left column - empty to show Jacob's image */}
+            {/* Left column - empty to show Jacob&apos;s image */}
             <div></div>
 
             {/* Right column - content */}
@@ -319,7 +319,7 @@ export default function SpeakingPage() {
                 </svg>
               </div>
               <p className="text-base leading-relaxed hover:text-orange-200 transition-colors duration-300">
-                Runs a private CHRO community of dozens of the world's top people leaders so he's on top of the latest trends and strategies.
+                Runs a private CHRO community of dozens of the world&apos;s top people leaders so he&apos;s on top of the latest trends and strategies.
               </p>
             </div>
 
@@ -343,7 +343,7 @@ export default function SpeakingPage() {
                 </svg>
               </div>
               <p className="text-base leading-relaxed">
-                His work is endorsed by the world's top CEOs from companies like Mastercard, Unilever, Best-Buy, The Home Depot, Hyatt, and dozens of others.
+                His work is endorsed by the world&apos;s top CEOs from companies like Mastercard, Unilever, Best-Buy, The Home Depot, Hyatt, and dozens of others.
               </p>
             </div>
 

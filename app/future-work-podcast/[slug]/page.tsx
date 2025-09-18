@@ -2,8 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navigation from "../../components/Navigation";
-import { FaApple, FaAmazon, FaSpotify, FaGoogle, FaRss, FaPlay, FaClock, FaCalendar } from "react-icons/fa";
-import { SiTunein, SiStitcher, SiIheartradio } from "react-icons/si";
+import { FaApple, FaAmazon, FaSpotify, FaGoogle, FaPlay, FaClock, FaCalendar } from "react-icons/fa";
 import { Metadata } from "next";
 import ShareButtons from "./ShareButtons";
 
@@ -188,7 +187,7 @@ export async function generateMetadata({ params }: EpisodePageProps): Promise<Me
 }
 
 // Generate structured data for SEO
-function generateStructuredData(episode: PodcastEpisode, relatedEpisodes: RelatedEpisode[]) {
+function generateStructuredData(episode: PodcastEpisode, _relatedEpisodes: RelatedEpisode[]) {
   const title = stripHtml(episode.title.rendered);
   const description = stripHtml(episode.excerpt.rendered);
   const featuredImage = episode._embedded?.["wp:featuredmedia"]?.[0];
