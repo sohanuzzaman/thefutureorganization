@@ -61,6 +61,10 @@ interface EpisodePageProps {
   params: { slug: string };
 }
 
+// Dynamic ISR - pages generated on-demand with 5-minute revalidation
+export const dynamic = 'force-dynamic';
+export const revalidate = 300; // 5 minutes
+
 async function fetchEpisodeBySlug(slug: string): Promise<PodcastEpisode | null> {
   try {
     const response = await fetch(

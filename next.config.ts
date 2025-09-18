@@ -39,6 +39,10 @@ const nextConfig: NextConfig = {
     optimizeCss: false,
     webVitalsAttribution: ['CLS', 'FCP', 'FID', 'INP', 'LCP', 'TTFB'],
   },
+  trailingSlash: false,
+  generateBuildId: async () => {
+    return 'build-' + Date.now();
+  },
   headers: async () => [
     {
       source: '/(.*)',

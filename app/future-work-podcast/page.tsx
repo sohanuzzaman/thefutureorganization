@@ -6,6 +6,8 @@ import { FaApple, FaAmazon, FaSpotify, FaGoogle, FaRss } from "react-icons/fa";
 import { SiTunein, SiStitcher, SiIheartradio } from "react-icons/si";
 import { Metadata } from "next";
 
+// Force SSR for podcast index page to show latest episodes
+export const dynamic = 'force-dynamic';
 
 interface PodcastPageProps {
   searchParams: { page?: string };
@@ -109,7 +111,7 @@ export default async function PodcastPage({ searchParams }: PodcastPageProps) {
       {/* Hero Section */}
       <section className="relative h-[600px] overflow-hidden">
         <Image
-          src="/assets/images/podcast-bg.png"
+          src="/assets/images/Future_of_Work_Podcast_BG.png"
           alt="The Future of Work Podcast Background"
           fill
           className="object-cover"
