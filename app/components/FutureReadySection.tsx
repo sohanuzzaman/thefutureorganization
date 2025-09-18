@@ -85,13 +85,13 @@ export default function FutureReadySection() {
 
           {/* Right side - Triangle Diagram */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative max-w-lg w-full">
+            <div className="relative max-w-2xl w-full">
               <Image
                 src="/triangle-update.png"
                 alt="Future Ready Triangle - Leadership, Future of Work, Employee Experience"
-                width={600}
-                height={400}
-                className="w-full h-auto"
+                width={800}
+                height={600}
+                className="w-full h-auto transform hover:scale-105 transition-transform duration-300"
                 priority
               />
             </div>

@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://thefutureorganization.com'),
   title: "Employee Experience | Future of Work | Leadership Keynote Speaker | Jacob Morgan",
   description: "Jacob Morgan is a professionally trained futurist, best-selling author, and keynote speaker. He creates future-ready organizations, leaders, and employees.",
+  icons: {
+    icon: '/fr-blue.png',
+    shortcut: '/fr-blue.png',
+    apple: '/fr-blue.png',
+  },
 };
 
 export default function RootLayout({

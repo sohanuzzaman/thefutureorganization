@@ -41,7 +41,7 @@ export default function BooksPage() {
           {/* Content */}
           <div className="absolute inset-0 flex items-center">
             <div className="container mx-auto px-4">
-              <div className="max-w-2xl ml-auto text-right text-white">
+              <div className="max-w-2xl ml-auto text-left text-white">
                 <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight animate-[fadeInUp_1s_ease-out] hover:text-orange-400 transition-colors duration-300">
                   Best-selling<br />books
                 </h1>

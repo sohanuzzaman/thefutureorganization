@@ -15,7 +15,7 @@ export default function AboutPage() {
               width={300}
               height={68}
               priority
-              className="h-12 w-auto brightness-0 invert transform hover:scale-105 transition-transform duration-300"
+              className="h-12 w-auto transform hover:scale-105 transition-transform duration-300"
             />
 
             <Navigation />
