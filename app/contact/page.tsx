@@ -7,7 +7,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-[#1e3a8a] shadow-sm relative z-50">
+      <header className="bg-[#1e3a8a] shadow-sm relative z-50 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <Image
@@ -16,7 +16,7 @@ export default function ContactPage() {
               width={300}
               height={68}
               priority
-              className="h-12 w-auto brightness-0 invert"
+              className="h-12 w-auto brightness-0 invert transform hover:scale-105 transition-transform duration-300"
             />
 
             <Navigation />
@@ -37,7 +37,7 @@ export default function ContactPage() {
 
           <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-end">
             <div className="text-center w-full pb-8 md:pb-12">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white animate-[fadeInUp_1s_ease-out] hover:text-orange-400 transition-colors duration-300">
                 Let's Connect
               </h1>
             </div>

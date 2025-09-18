@@ -55,7 +55,7 @@ export default function CoursesPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-[#1e3a8a] shadow-sm relative z-50">
+      <header className="bg-[#1e3a8a] shadow-sm relative z-50 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <Link href="/">
@@ -65,7 +65,7 @@ export default function CoursesPage() {
                 width={300}
                 height={68}
                 priority
-                className="h-12 w-auto"
+                className="h-12 w-auto transform hover:scale-105 transition-transform duration-300"
               />
             </Link>
             <Navigation />
@@ -86,7 +86,7 @@ export default function CoursesPage() {
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-8 animate-[fadeInUp_1s_ease-out] hover:text-orange-400 transition-colors duration-300">
             LEADERSHIP, EMPLOYEE EXPERIENCE, & THE FUTURE OF WORK COURSES
           </h1>
 
@@ -123,7 +123,7 @@ export default function CoursesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
             {/* Course 1: The Customer of the Future Course */}
-            <a href="https://education.blakemichellemorgan.com/the-customer-of-the-future" target="_blank" rel="noopener noreferrer" className="flex flex-col bg-white border border-gray-200 rounded-lg shadow-sm md:flex-row hover:bg-gray-100 transition-colors">
+            <a href="https://education.blakemichellemorgan.com/the-customer-of-the-future" target="_blank" rel="noopener noreferrer" className="flex flex-col bg-white border border-gray-200 rounded-lg shadow-sm md:flex-row hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 hover-lift animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: '0.1s'}}>
               <div className="relative w-full md:w-64 h-48 md:h-auto flex-shrink-0">
                 <Image
                   src="/assets/images/2023/11/The-customer-of-the-future.png"

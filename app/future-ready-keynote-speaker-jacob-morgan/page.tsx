@@ -8,7 +8,7 @@ export default function SpeakingPage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="bg-[#1e3a8a] shadow-sm relative z-50">
+      <header className="bg-[#1e3a8a] shadow-sm relative z-50 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <Image
@@ -17,7 +17,7 @@ export default function SpeakingPage() {
               width={300}
               height={68}
               priority
-              className="h-12 w-auto"
+              className="h-12 w-auto transform hover:scale-105 transition-transform duration-300"
             />
 
             <Navigation />
@@ -32,14 +32,14 @@ export default function SpeakingPage() {
         <img
           src="/assets/images/header-speaking2-scaled.webp"
           alt="Jacob Morgan Speaking"
-          className="hidden lg:block absolute inset-0 w-full h-full object-cover"
+          className="hidden lg:block absolute inset-0 w-full h-full object-cover scale-105 animate-[zoomIn_15s_ease-in-out_infinite_alternate]"
         />
 
         {/* Mobile Background Image */}
         <img
           src="/assets/images/header-speaking3-scaled.webp"
           alt="Jacob Morgan Speaking"
-          className="lg:hidden absolute inset-0 w-full h-full object-cover"
+          className="lg:hidden absolute inset-0 w-full h-full object-cover scale-105 animate-[zoomIn_15s_ease-in-out_infinite_alternate]"
         />
 
         {/* Overlay removed for better image visibility */}
@@ -52,17 +52,17 @@ export default function SpeakingPage() {
 
             {/* Right column - content */}
             <div className="flex flex-col justify-center">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
-                POWERFUL,<br />
-                CAPTIVATING<br />
-                INSPIRING,<br />
-                FASCINATING
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight animate-[fadeInUp_1s_ease-out]">
+                <span className="inline-block animate-[slideInLeft_0.8s_ease-out] opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: '0.2s'}}>POWERFUL,</span><br />
+                <span className="inline-block animate-[slideInLeft_0.8s_ease-out] opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: '0.4s'}}>CAPTIVATING</span><br />
+                <span className="inline-block animate-[slideInLeft_0.8s_ease-out] opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: '0.6s'}}>INSPIRING,</span><br />
+                <span className="inline-block animate-[slideInLeft_0.8s_ease-out] opacity-0 [animation-fill-mode:forwards] text-orange-500" style={{animationDelay: '0.8s'}}>FASCINATING</span>
               </h1>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors">
+              <div className="flex flex-col sm:flex-row gap-4 animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: '1s'}}>
+                <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                   EMAIL JACOB
                 </button>
-                <button className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-full text-lg font-semibold transition-colors">
+                <button className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                   EXPLORE TOPICS
                 </button>
               </div>
@@ -72,17 +72,17 @@ export default function SpeakingPage() {
           {/* Mobile Layout */}
           <div className="lg:hidden flex flex-col justify-end h-full pb-12">
             <div className="text-center">
-              <h1 className="text-4xl sm:text-5xl font-bold text-white mb-8 leading-tight">
-                POWERFUL,<br />
-                CAPTIVATING<br />
-                INSPIRING,<br />
-                FASCINATING
+              <h1 className="text-4xl sm:text-5xl font-bold text-white mb-8 leading-tight animate-[fadeInUp_1s_ease-out]">
+                <span className="inline-block animate-[slideInUp_0.8s_ease-out] opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: '0.2s'}}>POWERFUL,</span><br />
+                <span className="inline-block animate-[slideInUp_0.8s_ease-out] opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: '0.4s'}}>CAPTIVATING</span><br />
+                <span className="inline-block animate-[slideInUp_0.8s_ease-out] opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: '0.6s'}}>INSPIRING,</span><br />
+                <span className="inline-block animate-[slideInUp_0.8s_ease-out] opacity-0 [animation-fill-mode:forwards] text-orange-500" style={{animationDelay: '0.8s'}}>FASCINATING</span>
               </h1>
-              <div className="flex flex-col gap-4">
-                <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors">
+              <div className="flex flex-col gap-4 animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: '1s'}}>
+                <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                   EMAIL JACOB
                 </button>
-                <button className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-full text-lg font-semibold transition-colors">
+                <button className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                   EXPLORE TOPICS
                 </button>
               </div>
@@ -127,8 +127,8 @@ export default function SpeakingPage() {
 
           {/* Content Section */}
           <div className="text-center text-white">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Watch Jacob In Action</h2>
-            <p className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto mb-12 opacity-90">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-[fadeInUp_1s_ease-out] hover:text-orange-400 transition-colors duration-300">Watch Jacob In Action</h2>
+            <p className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto mb-12 opacity-90 animate-[fadeInUp_1s_ease-out] [animation-delay:0.2s] hover:opacity-100 transition-opacity duration-300">
               Jacob Morgan Is A Professionally Trained Futurist, Best-Selling Author of 6 Books,
               And One Of the World's Top Speakers on Employee Experience, The Future of Work, and Leadership.
               His Passion And Mission Is To Create Future-Ready Leaders, Employees, & Organizations.
@@ -137,7 +137,7 @@ export default function SpeakingPage() {
               href="/assets/pdfs/speakerkit.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#26388F] px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+              className="inline-block bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#26388F] px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 animate-[fadeInUp_1s_ease-out] [animation-delay:0.4s] hover:shadow-2xl"
             >
               DOWNLOAD BIO & MEDIA KIT
             </a>
@@ -282,43 +282,43 @@ export default function SpeakingPage() {
         <div className="absolute inset-0 z-10" style={{ backgroundColor: '#000000d1' }}></div>
 
         <div className="container mx-auto px-4 relative z-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
-            Why Work <span className="text-orange-500">with Jacob</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white animate-[fadeInUp_1s_ease-out] hover:text-orange-400 transition-colors duration-300">
+            Why Work <span className="text-orange-500 animate-[pulse_2s_infinite]">with Jacob</span>
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Books */}
-            <div className="text-center text-white">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="text-center text-white hover-lift animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: '0.1s'}}>
+              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+                <svg className="w-12 h-12 text-white hover:text-orange-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
               </div>
-              <p className="text-base leading-relaxed">
+              <p className="text-base leading-relaxed hover:text-orange-200 transition-colors duration-300">
                 Wrote 6 best-selling books on employee experience, leadership, & the future of work.
               </p>
             </div>
 
             {/* Futurist */}
-            <div className="text-center text-white">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="text-center text-white hover-lift animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: '0.2s'}}>
+              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+                <svg className="w-12 h-12 text-white hover:text-orange-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <p className="text-base leading-relaxed">
+              <p className="text-base leading-relaxed hover:text-orange-200 transition-colors duration-300">
                 Is a professionally trained futurist with a certification in strategic foresight from the University of Houston.
               </p>
             </div>
 
             {/* CHRO Community */}
-            <div className="text-center text-white">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="text-center text-white hover-lift animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: '0.3s'}}>
+              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
+                <svg className="w-12 h-12 text-white hover:text-orange-400 transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <p className="text-base leading-relaxed">
+              <p className="text-base leading-relaxed hover:text-orange-200 transition-colors duration-300">
                 Runs a private CHRO community of dozens of the world's top people leaders so he's on top of the latest trends and strategies.
               </p>
             </div>

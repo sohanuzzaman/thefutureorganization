@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#F0F5FA]">
       {/* Header */}
-      <header className="bg-[#1e3a8a] shadow-sm relative z-50">
+      <header className="bg-[#1e3a8a] shadow-sm relative z-50 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <Image
@@ -20,7 +20,7 @@ export default function Home() {
               width={300}
               height={68}
               priority
-              className="h-12 w-auto brightness-0 invert"
+              className="h-12 w-auto brightness-0 invert transform hover:scale-105 transition-transform duration-300"
             />
 
             <Navigation />
@@ -32,7 +32,7 @@ export default function Home() {
       <section className="relative h-[80vh] overflow-hidden">
         {/* Background Video */}
         <video
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover scale-105 animate-[zoomIn_20s_ease-in-out_infinite_alternate]"
           autoPlay
           loop
           muted
@@ -47,10 +47,10 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/20"></div>
 
         {/* Blue Ribbon at Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 bg-[#1e3a8a]/60 backdrop-blur-sm py-8">
+        <div className="absolute bottom-0 left-0 right-0 bg-[#1e3a8a]/60 backdrop-blur-sm py-8 animate-[slideInUp_1s_ease-out]">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-white text-center text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide leading-tight select-text">
-              CREATING <span className="text-orange-500">FUTURE READY</span> LEADERS,<br />
+            <h2 className="text-white text-center text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide leading-tight select-text animate-[fadeInUp_1.2s_ease-out]">
+              CREATING <span className="text-orange-500 animate-[pulse_2s_infinite]">FUTURE READY</span> LEADERS,<br />
               EMPLOYEES, &amp; ORGANIZATIONS
             </h2>
           </div>
@@ -79,24 +79,24 @@ export default function Home() {
       {/* Jacob's Books Section */}
       <section className="bg-white py-16">
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-[#334155] mb-6">
+          <h2 className="text-3xl font-bold text-[#334155] mb-6 animate-[fadeInUp_0.8s_ease-out] hover:text-[#1e3a8a] transition-colors duration-300">
             Read Jacob's Books
           </h2>
-          <p className="text-lg text-[#334155] mb-8 max-w-3xl mx-auto">
+          <p className="text-lg text-[#334155] mb-8 max-w-3xl mx-auto animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.2s]">
             Discover the insights and strategies that have helped thousands of leaders and organizations prepare for the future.
           </p>
 
-          <div className="mb-8">
+          <div className="mb-8 group">
             <Image
               src="/assets/images/book.png"
               alt="Jacob Morgan's Books"
               width={800}
               height={300}
-              className="mx-auto"
+              className="mx-auto transform group-hover:scale-105 transition-transform duration-500 animate-[fadeInUp_1.2s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]"
             />
           </div>
 
-          <button className="bg-[#1e3a8a] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#1e40af] transition-colors duration-300">
+          <button className="bg-[#1e3a8a] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#1e40af] hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl animate-[fadeInUp_1.4s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.6s]">
             See Jacob's Books
           </button>
         </div>

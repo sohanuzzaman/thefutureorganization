@@ -6,7 +6,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-[#1e3a8a] shadow-sm relative z-50">
+      <header className="bg-[#1e3a8a] shadow-sm relative z-50 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <Image
@@ -15,7 +15,7 @@ export default function AboutPage() {
               width={300}
               height={68}
               priority
-              className="h-12 w-auto brightness-0 invert"
+              className="h-12 w-auto brightness-0 invert transform hover:scale-105 transition-transform duration-300"
             />
 
             <Navigation />
@@ -28,13 +28,13 @@ export default function AboutPage() {
       <section className="bg-gradient-to-b from-gray-50 to-white py-16 md:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 animate-[fadeInUp_1s_ease-out]">
               <Image
                 src="/fr-blue.png"
                 alt="lighthouse icon"
                 width={48}
                 height={48}
-                className="inline-block align-baseline"
+                className="inline-block align-baseline animate-[float_3s_ease-in-out_infinite]"
                 style={{
                   height: '1.2em',
                   width: 'auto',
@@ -43,8 +43,8 @@ export default function AboutPage() {
                   padding: '0'
                 }}
               />
-              <span className="text-[#1e3a8a]">BOUT</span>{' '}
-              <span className="text-orange-500">JACOB</span>
+              <span className="text-[#1e3a8a] hover:text-orange-500 transition-colors duration-300">BOUT</span>{' '}
+              <span className="text-orange-500 hover:text-[#1e3a8a] transition-colors duration-300">JACOB</span>
             </h1>
           </div>
         </div>
@@ -55,12 +55,12 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Story */}
-            <div className="order-2 lg:order-1">
+            <div className="order-2 lg:order-1 animate-[slideInLeft_1s_ease-out]">
               <div className="relative">
-                <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 to-[#1e3a8a] rounded-full"></div>
+                <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 to-[#1e3a8a] rounded-full animate-[progressBar_2s_ease-out]" style={{animationDelay: '0.5s'}}></div>
                 <div className="pl-8">
                   <div className="prose prose-xl max-w-none">
-                    <p className="text-xl md:text-2xl leading-relaxed text-gray-800 font-medium">
+                    <p className="text-xl md:text-2xl leading-relaxed text-gray-800 font-medium hover:text-[#1e3a8a] transition-colors duration-300">
                       Jacob's family is from The Republic of Georgia which used to be a part of the former U.S.S.R. They came to America with no money, no possessions, and without speaking a word of English. Through sheer hard work, determination, and will, they were able to build a life for themselves and their family. Jacob was raised with the belief that if you work hard, you can accomplish anything, that it's always better to lead instead of follow, and that anyone has the potential to lead.
                     </p>
                   </div>
@@ -69,10 +69,10 @@ export default function AboutPage() {
             </div>
 
             {/* Image */}
-            <div className="order-1 lg:order-2">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl blur-2xl opacity-20 scale-110"></div>
-                <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div className="order-1 lg:order-2 animate-[slideInRight_1s_ease-out]">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl blur-2xl opacity-20 scale-110 group-hover:opacity-30 transition-opacity duration-300"></div>
+                <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden transform group-hover:scale-105 transition-transform duration-500">
                   <Image
                     src="/jacob-image.png"
                     alt="Jacob Morgan"
@@ -91,10 +91,10 @@ export default function AboutPage() {
       {/* Corporate Story */}
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12">
+          <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 hover-lift animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: '0.3s'}}>
             <div className="prose prose-lg max-w-none text-gray-700">
-              <p className="text-lg leading-relaxed">
-                After graduating with honors in business management economics and psychology from the University of California Santa Cruz, Jacob was excited to join the corporate world. At his first job he was told that he'd be traveling the country, meeting with executives and entrepreneurs, and doing all sorts of exciting work. A few months in, he was stuck doing data entry, cold calling, and PowerPoint presentations. One day the CEO came out of his nice corner office, handed Jacob a $10 bill and said, "I'm late for a meeting, go grab me a cup of coffee, and get something for yourself as well." <strong>That was the last corporate job he ever had.</strong>
+              <p className="text-lg leading-relaxed hover:text-gray-900 transition-colors duration-300">
+                After graduating with honors in business management economics and psychology from the University of California Santa Cruz, Jacob was excited to join the corporate world. At his first job he was told that he'd be traveling the country, meeting with executives and entrepreneurs, and doing all sorts of exciting work. A few months in, he was stuck doing data entry, cold calling, and PowerPoint presentations. One day the CEO came out of his nice corner office, handed Jacob a $10 bill and said, "I'm late for a meeting, go grab me a cup of coffee, and get something for yourself as well." <strong className="text-orange-600 hover:text-orange-700 transition-colors duration-300">That was the last corporate job he ever had.</strong>
               </p>
             </div>
           </div>
@@ -105,12 +105,12 @@ export default function AboutPage() {
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none text-gray-700 space-y-8">
-            <p className="text-xl leading-relaxed font-medium text-gray-800">
+            <p className="text-xl leading-relaxed font-medium text-gray-800 animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] hover:text-[#1e3a8a] transition-colors duration-300" style={{animationDelay: '0.2s'}}>
               Today, Jacob Morgan is a trained futurist and one of the world's leading authorities on leadership, the future of work, and employee experience. He speaks in front of tens of thousands of people each year and his content is seen over a million times a year.
             </p>
 
-            <p className="text-lg leading-relaxed">
-              Jacob is the best-selling author of five books: <em>Leading With Vulnerability</em> (Wiley 2024), <em>The Future Leader</em> (Wiley 2020) <em>The Employee Experience Advantage</em> (Wiley, 2017), <em>The Future of Work</em> (Wiley, 2014), and <em>The Collaborative Organization</em> (McGraw Hill, 2012). He speaks at over 50 conferences a year including TED Academy which is one of the largest TED events in the world. In addition Jacob provides advisory and thought leadership services to various organizations around the world.
+            <p className="text-lg leading-relaxed animate-[fadeInUp_1s_ease-out] opacity-0 [animation-fill-mode:forwards] hover:text-gray-900 transition-colors duration-300" style={{animationDelay: '0.4s'}}>
+              Jacob is the best-selling author of five books: <em className="text-orange-600 hover:text-orange-700 transition-colors duration-300">Leading With Vulnerability</em> (Wiley 2024), <em className="text-orange-600 hover:text-orange-700 transition-colors duration-300">The Future Leader</em> (Wiley 2020) <em className="text-orange-600 hover:text-orange-700 transition-colors duration-300">The Employee Experience Advantage</em> (Wiley, 2017), <em className="text-orange-600 hover:text-orange-700 transition-colors duration-300">The Future of Work</em> (Wiley, 2014), and <em className="text-orange-600 hover:text-orange-700 transition-colors duration-300">The Collaborative Organization</em> (McGraw Hill, 2012). He speaks at over 50 conferences a year including TED Academy which is one of the largest TED events in the world. In addition Jacob provides advisory and thought leadership services to various organizations around the world.
             </p>
           </div>
         </div>

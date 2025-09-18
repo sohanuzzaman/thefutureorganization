@@ -6,7 +6,7 @@ export default function BooksPage() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="bg-[#1e3a8a] shadow-sm relative z-50">
+      <header className="bg-[#1e3a8a] shadow-sm relative z-50 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <Image
@@ -15,7 +15,7 @@ export default function BooksPage() {
               width={300}
               height={68}
               priority
-              className="h-12 w-auto"
+              className="h-12 w-auto transform hover:scale-105 transition-transform duration-300"
             />
 
             <Navigation />
@@ -42,10 +42,10 @@ export default function BooksPage() {
           <div className="absolute inset-0 flex items-center">
             <div className="container mx-auto px-4">
               <div className="max-w-2xl ml-auto text-right text-white">
-                <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight">
+                <h1 className="text-5xl md:text-7xl font-bold mb-4 leading-tight animate-[fadeInUp_1s_ease-out] hover:text-orange-400 transition-colors duration-300">
                   Best-selling<br />books
                 </h1>
-                <h2 className="text-2xl md:text-3xl font-light">
+                <h2 className="text-2xl md:text-3xl font-light animate-[fadeInUp_1.2s_ease-out] opacity-0 [animation-fill-mode:forwards]" style={{animationDelay: '0.3s'}}>
                   by jacob morgan
                 </h2>
               </div>
