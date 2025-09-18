@@ -16,11 +16,12 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <Image
               src="/assets/images/jacob-logo.png"
-              alt="Jacob Morgan"
+              alt="Jacob Morgan - Leadership Keynote Speaker"
               width={300}
               height={68}
               priority
               className="h-12 w-auto transform hover:scale-105 transition-transform duration-300"
+              sizes="(max-width: 640px) 200px, 300px"
             />
 
             <Navigation />
@@ -37,7 +38,8 @@ export default function Home() {
           loop
           muted
           playsInline
-          poster="/assets/images/video-placeholder.png"
+          poster="/assets/images/video-placeholder.jpg"
+          preload="metadata"
         >
           <source src="/assets/videos/Website-video-V3-2025-final.webm" type="video/webm" />
           Your browser does not support the video tag.
@@ -89,11 +91,12 @@ export default function Home() {
           <div className="mb-8 group">
             <Image
               src="/assets/images/book.png"
-              alt="Jacob Morgan's Books"
+              alt="Jacob Morgan's Leadership and Future of Work Books"
               width={800}
               height={300}
               className="mx-auto transform group-hover:scale-105 transition-transform duration-500 animate-[fadeInUp_1.2s_ease-out] opacity-0 [animation-fill-mode:forwards] [animation-delay:0.4s]"
-              priority
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 800px"
+              loading="lazy"
             />
           </div>
 

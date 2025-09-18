@@ -1,10 +1,13 @@
 import type { NextConfig } from "next";
 
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+
 const nextConfig: NextConfig = {
   images: {
-    // Enable image optimization for better performance and caching
     unoptimized: false,
-    // Allow images from WordPress and local assets
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -17,12 +20,76 @@ const nextConfig: NextConfig = {
         pathname: '/wp-content/**',
       },
     ],
-    // Optimize images with different sizes for responsive loading
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    // Cache optimized images for better performance
-    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+    minimumCacheTTL: 60 * 60 * 24 * 365,
   },
+  compress: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
+  experimental: {
+    optimizeCss: false,
+    webVitalsAttribution: ['CLS', 'FCP', 'FID', 'INP', 'LCP', 'TTFB'],
+  },
+  headers: async () => [
+    {
+      source: '/(.*)',
+      headers: [
+        {
+          key: 'X-Content-Type-Options',
+          value: 'nosniff',
+        },
+        {
+          key: 'X-Frame-Options',
+          value: 'DENY',
+        },
+        {
+          key: 'X-XSS-Protection',
+          value: '1; mode=block',
+        },
+        {
+          key: 'Referrer-Policy',
+          value: 'strict-origin-when-cross-origin',
+        },
+      ],
+    },
+    {
+      source: '/assets/(.*)',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'public, immutable, max-age=31536000',
+        },
+      ],
+    },
+    {
+      source: '/_next/static/(.*)',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'public, immutable, max-age=31536000',
+        },
+      ],
+    },
+    {
+      source: '/(.*).js',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'public, max-age=3600, stale-while-revalidate=86400',
+        },
+      ],
+    },
+    {
+      source: '/(.*).css',
+      headers: [
+        {
+          key: 'Cache-Control',
+          value: 'public, max-age=3600, stale-while-revalidate=86400',
+        },
+      ],
+    },
+  ],
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);
