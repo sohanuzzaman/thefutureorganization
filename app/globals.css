@@ -33,6 +33,11 @@ body {
   }
 }
 
+@keyframes progressFill {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
 /* Episode content paragraph spacing */
 .episode-content p {
   margin-top: 1.5rem !important;
