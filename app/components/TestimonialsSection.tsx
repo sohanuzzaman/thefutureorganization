@@ -13,6 +13,11 @@ interface Testimonial {
     rendered: string;
   };
   featured_media: number;
+  acf?: {
+    client_name?: string;
+    company?: string;
+    position?: string;
+  };
   yoast_head_json?: {
     og_image?: Array<{
       url: string;
@@ -39,7 +44,7 @@ export default function TestimonialsSection() {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const response = await fetch('https://api.thefutureorganization.com/wp-json/wp/v2/testimonials?status=publish');
+        const response = await fetch(`https://api.thefutureorganization.com/wp-json/wp/v2/testimonials?status=publish&_=${Date.now()}`);
         const data = await response.json();
         // Filter only published testimonials with content
         const publishedTestimonials = data.filter((testimonial: Testimonial) => {
@@ -117,7 +122,7 @@ export default function TestimonialsSection() {
   };
 
   const openModal = (testimonial: Testimonial) => {
-    const { name, title } = extractNameAndTitle(testimonial.title.rendered);
+    const { name, title } = extractNameAndTitle(testimonial);
     const quote = stripHtml(testimonial.content.rendered);
     const imageUrl = testimonial.yoast_head_json?.og_image?.[0]?.url;
 
@@ -137,9 +142,29 @@ export default function TestimonialsSection() {
     setIsPaused(false); // Resume slider when modal closes
   };
 
-  const extractNameAndTitle = (titleHtml: string) => {
-    const cleanTitle = stripHtml(titleHtml);
-    // Try to split on common patterns like " - ", " | ", or " at "
+  const extractNameAndTitle = (testimonial: Testimonial) => {
+    // Use ACF fields if available
+    if (testimonial.acf?.client_name) {
+      const position = testimonial.acf.position || '';
+      const company = testimonial.acf.company || '';
+
+      let title = '';
+      if (position && company) {
+        title = `${position} at ${company}`;
+      } else if (position) {
+        title = position;
+      } else if (company) {
+        title = company;
+      }
+
+      return {
+        name: testimonial.acf.client_name,
+        title: title
+      };
+    }
+
+    // Fallback to parsing title HTML
+    const cleanTitle = stripHtml(testimonial.title.rendered);
     const parts = cleanTitle.split(/\s[-|]\s|\sat\s/);
     if (parts.length >= 2) {
       return {
@@ -173,7 +198,7 @@ export default function TestimonialsSection() {
   }
 
   const currentTestimonial = testimonials[currentIndex];
-  const { name, title } = extractNameAndTitle(currentTestimonial.title.rendered);
+  const { name, title } = extractNameAndTitle(currentTestimonial);
   const quote = stripHtml(currentTestimonial.content.rendered);
   const truncatedQuote = truncateText(quote, 280); // Limit quote length for consistency
   const imageUrl = currentTestimonial.yoast_head_json?.og_image?.[0]?.url;
@@ -215,7 +240,7 @@ export default function TestimonialsSection() {
             }}
           >
             {testimonials.map((testimonial, index) => {
-              const { name: slideName, title: slideTitle } = extractNameAndTitle(testimonial.title.rendered);
+              const { name: slideName, title: slideTitle } = extractNameAndTitle(testimonial);
               const slideQuote = stripHtml(testimonial.content.rendered);
               const slideTruncatedQuote = truncateText(slideQuote, 280);
               const slideImageUrl = testimonial.yoast_head_json?.og_image?.[0]?.url;
@@ -297,15 +322,13 @@ export default function TestimonialsSection() {
                         }`}>
                           {slideName}
                         </h3>
-                        {slideTitle && (
-                          <p className={`text-[#1e3a8a] text-sm md:text-base font-semibold line-clamp-2 transition-all duration-500 ${
-                            index === currentIndex
-                              ? 'transform-none opacity-100'
-                              : 'transform translate-y-1 opacity-70'
-                          }`}>
-                            {slideTitle}
-                          </p>
-                        )}
+                        <p className={`text-[#1e3a8a] text-sm md:text-base font-semibold line-clamp-2 transition-all duration-500 ${
+                          index === currentIndex
+                            ? 'transform-none opacity-100'
+                            : 'transform translate-y-1 opacity-70'
+                        }`}>
+                          {slideTitle}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -314,32 +337,32 @@ export default function TestimonialsSection() {
             })}
           </div>
 
-          {/* Navigation Arrows - More compact with physics */}
+          {/* Navigation Arrows - Improved visibility */}
           {testimonials.length > 1 && (
             <>
               <button
                 onClick={prevSlide}
                 disabled={isTransitioning}
-                className={`absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-3 md:-translate-x-6 bg-white hover:bg-gray-50 text-[#1e3a8a] hover:text-orange-500 p-3 rounded-full shadow-md border border-gray-200 transition-all duration-300 hover:scale-110 active:scale-95 ${
-                  isTransitioning ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-lg'
+                className={`absolute left-2 top-1/2 transform -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-gray-700 hover:text-orange-500 p-3 rounded-full shadow-lg border border-gray-200 transition-all duration-300 hover:scale-110 active:scale-95 ${
+                  isTransitioning ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl'
                 }`}
                 aria-label="Previous testimonial"
               >
-                <svg className="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <svg className="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
 
               <button
                 onClick={nextSlide}
                 disabled={isTransitioning}
-                className={`absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-3 md:translate-x-6 bg-white hover:bg-gray-50 text-[#1e3a8a] hover:text-orange-500 p-3 rounded-full shadow-md border border-gray-200 transition-all duration-300 hover:scale-110 active:scale-95 ${
-                  isTransitioning ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-lg'
+                className={`absolute right-2 top-1/2 transform -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-gray-700 hover:text-orange-500 p-3 rounded-full shadow-lg border border-gray-200 transition-all duration-300 hover:scale-110 active:scale-95 ${
+                  isTransitioning ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-xl'
                 }`}
                 aria-label="Next testimonial"
               >
-                <svg className="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg className="w-5 h-5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             </>
