@@ -1,9 +1,5 @@
 import type { NextConfig } from "next";
 
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
-
 const nextConfig: NextConfig = {
   images: {
     unoptimized: false,
@@ -34,7 +30,6 @@ const nextConfig: NextConfig = {
     optimizeCss: false,
     webVitalsAttribution: ['CLS', 'FCP', 'FID', 'INP', 'LCP', 'TTFB'],
   },
-  output: 'standalone',
   headers: async () => [
     {
       source: '/(.*)',
@@ -95,5 +90,9 @@ const nextConfig: NextConfig = {
     },
   ],
 };
+
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 export default withBundleAnalyzer(nextConfig);
